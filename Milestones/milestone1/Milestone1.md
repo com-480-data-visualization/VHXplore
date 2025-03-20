@@ -28,15 +28,16 @@ Stack Overflow: https://survey.stackoverflow.co/2024/technology
 Github: https://github.com/niklas-heer/speed-comparison
 IEEE Spectrum: https://spectrum.ieee.org/top-10-programming-languages
 
-### Originality of the approach
+- Originality of the approach
 
 originality comes from:
-- centralizing different visualization about programming languages even atypical ones. This has never been done
--do it with a fluid and interactive interface
+centralizing different visualization about programming languages even atypical ones. This has never been done
+
+do it with a fluid and interactive interface
 
 This project aims to go beyond simple rankings by creating a more comprehensive narrative. It will combine historical timelines, performance benchmarks and [something] in one interactive experience. Additionally, visual elements like language similarity graphs and geographic maps will provide unique perspectives, making the data more relatable and engaging. The inclusion of cultural insights — such as the meaning behind language names and logo designs — adds another layer of storytelling rarely seen in existing projects.
 
-### Sources of inspiration
+- Sources of inspiration
 
 Bole museum / stack overflow surveys /pretty visualization inspired by the lecture
 Inspiration comes from diverse sources, including data journalism websites like The Pudding and FiveThirtyEight, which excel at making data stories accessible and captivating. Visualizations in National Geographic and Scientific American have also influenced the use of layered storytelling through graphics. For interactive elements, tools like ObservableHQ and examples from D3.js's community gallery inspired the use of custom charts and playful animations to keep the audience engaged.
