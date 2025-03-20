@@ -2,9 +2,10 @@
 
 | Student's name | SCIPER |
 | -------------- | ------ |
+|Xinhe Gao|402746 |
+|Hanbo Shim |403755 |
 |Valentin Vuillon|315300 |
-| | |
-| | |
+
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
