@@ -10,7 +10,9 @@ Valentin Vuillon  &#8195;315300 <br>
 
 <b>Milestone 1:</b> Proposal <br>
 
-Here you can find our milsetone 1: [link](/Milestones/milestone1/) 
+Here you can find our milestone 1: [[link]](/Milestones/milestone1/) 
 
-It contains Milestone1.md 
-can be found alongside a [Jupiter Notebook](/Milestones/milestone1/EDA.ipynb) containing our EDA
+It contains:
+- Our project proposal as a .md file. [[link]](/Milestones/milestone1/Milestone1.md) 
+- A jupyter notebook containing our preliminary exploratory data analysis [[link]](/Milestones/milestone1/EDA.ipynb) 
+- The used datasets for the EDA, pldb.csv and plpop.csv
