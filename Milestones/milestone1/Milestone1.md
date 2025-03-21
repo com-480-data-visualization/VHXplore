@@ -2,15 +2,50 @@
 
 ### Problematic
 
-
 As contemporary students, we engage with programming languages almost every day. They have become such an integral part of our academic and professional lives that we often take them for granted, rarely pausing to reflect on their origins, evolution, and impact. Our team was inspired by the idea of looking at programming languages from a fresh perspective—one that goes beyond syntax and functionality to explore their histories, rise and fall in popularity, and the philosophies that shaped them.
 The primary goal of this project is to uncover intriguing insights about programming languages through engaging and interactive visualizations. We aim to explore key aspects such as historical development, industry trends, performance comparisons, and the unique stories behind various languages. By illustrating their evolution and interconnectedness, we hope to bring a new level of appreciation to the tools we use daily.
 With these visualizations, we want to make complex data accessible and visually compelling, offering fresh insights for developers, students, educators, and tech enthusiasts alike. Beyond just presenting statistics, we seek to foster a sense of connection with programming languages—helping users not only understand their historical significance but also feel more inspired and engaged when using them in the future.
- Our project aspires to bridge the gap between technical communities and the broader public, transforming abstract trends into an interactive and informative experience. The target audience includes aspiring programmers, experienced developers, tech educators, and anyone curious about the dynamic landscape of programming languages.
-
+Our project aspires to bridge the gap between technical communities and the broader public, transforming abstract trends into an interactive and informative experience. The target audience includes aspiring programmers, experienced developers, tech educators, and anyone curious about the dynamic landscape of programming languages.
 
 ### Dataset
 
+To create a comprehensive visualization of programming language trends and characteristics, we selected three publicly available datasets, each offering unique perspectives.
+
+#### 1. Kaggle Programming Language Database
+
+https://www.kaggle.com/datasets/sujaykapadnis/programming-language-database
+This dataset provides structured data on 4,000+ programming languages, each with over 350 attributes, including:
+
+- General Info: Year of appearance, inventor, country.
+- Usage Stats: Number of users, job postings, related books and papers.
+- Technical Features: Boolean indicators (e.g. Case Insensitive Identifiers，For Loops).
+- Conceptual Links: Relations between languages (sourced from Wikipedia).
+
+Limitations：
+While detailed and well-organized, some entries have missing fields, which may lead to visualization gaps if not preprocessed carefully.
+
+#### 2. Stack Overflow Annual Developer Survey
+
+https://survey.stackoverflow.co/
+This annual survey gathers responses from 65,000+ developers worldwide, capturing:
+
+- Demographics: Age, education, country.
+- Employment: Job roles, experience, industry.
+- Language Use: Language preferences and prior experience.
+- Tech Attitudes: Opinions on AI and emerging technologies.
+
+Limitations：
+As a self-reported survey, it may reflect sampling bias. It also contains fewer quantitative features compared to the other datasets, limiting its statistical use.
+
+#### 3. PYPL PopularitY of Programming Language
+
+https://pypl.github.io/PYPL.html
+PYPL is a monthly time-series dataset showing language popularity trends since 2004, based on Google search frequency.
+
+Limitations：
+The data is well-structured and ready to use, but it focuses only on popularity metrics and lacks deeper metadata like demographics or language features.
+
+Together, these three datasets complement each other’s weaknesses, forming a well-rounded foundation for a complete programming language data visualization.
 
 ### Exploratory Data Analysis
 
