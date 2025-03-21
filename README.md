@@ -10,4 +10,7 @@ Valentin Vuillon  &#8195;315300 <br>
 
 <b>Milestone 1:</b> Proposal <br>
 
-In the folder [milestones](/Milestones), the [proposal](/Milestones/milestone1/Milestone1.md) can be found in its markdown version together with a [Jupiter Notebook](/Milestones/milestone1/exploratory_analysis-milestone-1.ipynb) containing the pre-processing scripts.
+Here you can find our project proposal: [link](/Milestones/milestone1/Milestone1.md) 
+
+It contains Milestone1.md 
+can be found alongside a [Jupiter Notebook](/Milestones/milestone1/EDA.ipynb) containing our EDA
