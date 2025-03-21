@@ -83,4 +83,4 @@ Finally, we would like to stand out from the projects above by putting the empha
 
 The stack overflow surveys have been an important inspiration by showing us that it is possible to show interesting insights about programming languages in a visually pleasing way.
 
-We have been inspired by the [Bolo museum](https://en.wikipedia.org/wiki/Mus%C3%A9e_Bolo) at EPFL. What we would like to do is to have a similar approach: we would like to make it fun to learn about technology. Make the learning experience interactive and accessible for people with any level of tech expertise.
+We have been inspired by the [Bolo museum](https://en.wikipedia.org/wiki/Mus%C3%A9e_Bolo) at EPFL. What we would like to do is to have a similar approach: making it fun to learn about technology. Making the learning experience interactive and accessible for people with any level of tech expertise.
