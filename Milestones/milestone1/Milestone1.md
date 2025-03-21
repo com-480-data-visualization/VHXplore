@@ -67,11 +67,11 @@ Famous projects that are close to what we would like to do are the annual stack 
 
 Other programming languages visualizations are listed below:
 
-TIOBE index: https://www.tiobe.com/tiobe-index/
+https://www.tiobe.com/tiobe-index/
 
-Github: https://github.com/niklas-heer/speed-comparison
+https://github.com/niklas-heer/speed-comparison
 
-IEEE Spectrum: https://spectrum.ieee.org/top-10-programming-languages
+https://spectrum.ieee.org/top-10-programming-languages
 
 
 #### Why is our approach original?
