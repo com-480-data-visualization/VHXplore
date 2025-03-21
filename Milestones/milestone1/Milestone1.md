@@ -4,7 +4,7 @@
 
 The goal of our project is to explore the world of programming languages through data visualization. 
 
-We would like to gather a collection of interesting and atypical visualization to learn more about programming language.
+We would like to gather a collection of interesting and atypical visualization to learn more about programming languages.
 
 The kind of visualization we would like to do are the following: 
 - Trends in programming languages (popularity of languages over time, study of rise and fall in popularity). 
