@@ -77,7 +77,7 @@ IEEE Spectrum: https://spectrum.ieee.org/top-10-programming-languages
 #### Why is our approach original?
 
 Our goal is to stand out from the project listed above by making visualizations that are atypical and have not been done before. We would also like to stand out by selecting visualizations that are normally not put together in one single web page.
-Finally, we would like to stand out from the projecst above by putting the emphasis on making interactive, fluid, artistically orginal and visually pleasing visualizations. 
+Finally, we would like to stand out from the projects above by putting the emphasis on making interactive, fluid, artistically orginal and visually pleasing visualizations. 
 
 #### What are our source of inspiration?
 
