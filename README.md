@@ -10,7 +10,7 @@ Valentin Vuillon  &#8195;315300 <br>
 
 <b>Milestone 1:</b> Proposal <br>
 
-Here you can find our project proposal: [link](/Milestones/milestone1/Milestone1.md) 
+Here you can find our milsetone 1: [link](/Milestones/milestone1/) 
 
 It contains Milestone1.md 
 can be found alongside a [Jupiter Notebook](/Milestones/milestone1/EDA.ipynb) containing our EDA
