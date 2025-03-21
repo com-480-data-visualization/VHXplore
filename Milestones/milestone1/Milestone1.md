@@ -63,7 +63,7 @@ A preliminary EDA using the Kaggle Programming Language Database dataset can be 
 
 #### What has already been done in programming language data visualization?
 
-Famous projects that are close to what we would like to do are the annual stack overflow surveys https://survey.stackoverflow.co/2024/technology which are showing programming languages trends among the stackoverflow users. 
+Famous projects that are close to what we would like to do are the annual stack overflow surveys https://survey.stackoverflow.co/2024/technology which are showing programming languages trends among the stack overflow users. 
 
 Other programming languages visualizations are listed below:
 
