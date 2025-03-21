@@ -8,7 +8,7 @@ Valentin Vuillon  &#8195;315300 <br>
 
 ### Milestones
 
-<b>Milestone 1:</b> Proposal <br>
+<b>Milestone 1</b>
 
 Here you can find our milestone 1: [[link]](/Milestones/milestone1/) 
 
