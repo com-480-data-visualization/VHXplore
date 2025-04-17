@@ -2,7 +2,9 @@ d3.csv("/Milestones/milestone1/pldb.csv").then(csv_data => {
 
   console.log("Loaded");
   const data = csv_data
+    .filter(d => d.rank < 50)
     .filter(d => +d.appeared > 1900)
+    .filter(d => d.creators != "")
     .map(d => (
     {
       name: d.title,
@@ -37,22 +39,37 @@ d3.csv("/Milestones/milestone1/pldb.csv").then(csv_data => {
 
   // Draw dots
   svg.selectAll(".dot")
-    .data(data)
-    .enter()
-    .append("circle")
-    .attr("class", "dot")
-    .attr("cx", d => x(d.year))
-    .attr("cy", height / 2)
-    .attr("r", 6)
-    .on("mouseover", (event, d) => {
-      tooltip.transition().duration(200).style("opacity", 1);
-      tooltip.html(`<strong>${d.name}</strong><br>${d.year}<br>${d.creator}`)
-        .style("left", (event.pageX + 10) + "px")
-        .style("top", (event.pageY - 28) + "px");
-    })
-    .on("mouseout", () => {
-      tooltip.transition().duration(300).style("opacity", 0);
-    });
+  .data(data)
+  .enter()
+  .append("circle")
+  .attr("class", "dot")
+  .attr("cx", d => x(d.year))
+  .attr("cy", height / 2)
+  .attr("r", 5)
+  .on("mouseover", (event, d) => {
+    // Enlarge the circle
+    d3.select(event.currentTarget)
+      .transition()
+      .duration(200)
+      .attr("r", 8);
+
+    // Show tooltip
+    tooltip.transition().duration(200).style("opacity", 1);
+    tooltip.html(`<strong>${d.name}</strong><br>${d.year}<br>${d.creator}`)
+      .style("left", (event.pageX - 40) + "px")
+      .style("top", (event.pageY - 80) + "px");
+  })
+  .on("mouseout", (event, d) => {
+    // Shrink the circle back
+    d3.select(event.currentTarget)
+      .transition()
+      .duration(200)
+      .attr("r", 5);
+
+    // Hide tooltip
+    tooltip.transition().duration(300).style("opacity", 0);
+  });
+
     
 });
 
