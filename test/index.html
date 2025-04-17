@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-<h1>First html document</h1>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Programming Languages Timeline</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    .dot {
+      fill: steelblue;
+      cursor: pointer;
+    }
 
+    .tooltip {
+      position: absolute;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 6px;
+      border-radius: 4px;
+      pointer-events: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
 <body>
-<!-- Add a bit of text -->
-<p>This is my first sentence</p>
-
-<!-- Add a svg shape. Note that the 'target' class is attributed to the circle -->
-
-<svg width=1000 height=600></svg>
+  <h2>Programming Languages Timeline</h2>
+  <div id="chart"></div>
 
 </body>
+</html>
+
+<script src="/test/main.js"></script>
 <!-- Load d3.js -->
+ <!--
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="/test/main.js"></script>
-
+-->

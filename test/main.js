@@ -1,57 +1,59 @@
-d3.csv("/Milestones/milestone1/pldb.csv", function(data) {
-    console.log("Loaded");
-  
-    // Filter the data to only include the columns you want
-    const filtered_data = data.map(function(d) {
-      return {
-        title: d.title,       // Name of the language (for x-axis)
-        appeared: +d.appeared // Convert 'appeared' to a number for y-axis
-      };
+d3.csv("/Milestones/milestone1/pldb.csv").then(csv_data => {
+
+  console.log("Loaded");
+  const data = csv_data
+    .filter(d => +d.appeared > 1900)
+    .map(d => (
+    {
+      name: d.title,
+      year: +d.appeared,       // Convert string to number
+      creator: d.creators
+    }
+
+));
+  const width = 800;
+  const height = 200;
+  const margin = { top: 20, right: 30, bottom: 40, left: 40 };
+
+  const svg = d3.select("#chart")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  const x = d3.scaleLinear()
+    .domain(d3.extent(data, d => d.year))
+    .range([margin.left, width - margin.right]);
+
+  // X-axis
+  svg.append("g")
+    .attr("transform", `translate(0, ${height - margin.bottom})`)
+    .call(d3.axisBottom(x).tickFormat(d3.format("d")));
+
+  // Tooltip
+  const tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+  // Draw dots
+  svg.selectAll(".dot")
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("class", "dot")
+    .attr("cx", d => x(d.year))
+    .attr("cy", height / 2)
+    .attr("r", 6)
+    .on("mouseover", (event, d) => {
+      tooltip.transition().duration(200).style("opacity", 1);
+      tooltip.html(`<strong>${d.name}</strong><br>${d.year}<br>${d.creator}`)
+        .style("left", (event.pageX + 10) + "px")
+        .style("top", (event.pageY - 28) + "px");
+    })
+    .on("mouseout", () => {
+      tooltip.transition().duration(300).style("opacity", 0);
     });
-    console.log(filtered_data);
-  
-    const margin = { top: 20, right: 30, bottom: 40, left: 40 };
-    const width = 600 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
-  
-    // Create the SVG container
-    const svg = d3.select('svg')
-      .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
-    .append('g')
-      .attr('transform', `translate(${margin.left}, ${margin.top})`);
-  
-    // Create x and y scales
-    const x = d3.scaleBand()
-      .domain(filtered_data.map(d => d.title)) // Using 'title' for the x-axis
-      .range([0, width])
-      .padding(0.1);  // Padding between bars
-  
-    const y = d3.scaleLinear()
-      .domain([0, d3.max(filtered_data, d => d.appeared)]) // Using 'appeared' for y-axis
-      .nice()  // Rounds the axis ticks
-      .range([height, 0]);
-  
-    // Append the bars
-    svg.selectAll('.bar')
-      .data(filtered_data)
-      .enter().append('rect')
-      .attr('class', 'bar')
-      .attr('x', d => x(d.title)) // Set x-position based on 'title'
-      .attr('y', d => y(d.appeared)) // Set y-position based on 'appeared'
-      .attr('width', x.bandwidth())  // Width of each bar
-      .attr('height', d => height - y(d.appeared));  // Height of each bar
-  
-    // Add x-axis
-    svg.append('g')
-      .attr('class', 'x-axis')
-      .attr('transform', `translate(0, ${height})`)
-      .call(d3.axisBottom(x).ticks(5));
-  
-    // Add y-axis
-    svg.append('g')
-      .attr('class', 'y-axis')
-      .call(d3.axisLeft(y).ticks(5));
-  
-  });
-  
+    
+});
+
+// Sample data
