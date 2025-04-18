@@ -1,4 +1,4 @@
-d3.csv("pldb.csv").then(csv_data => {
+d3.csv("data/pldb.csv").then(csv_data => {
 
   console.log("Loaded");
   const data = csv_data
@@ -13,11 +13,11 @@ d3.csv("pldb.csv").then(csv_data => {
     }
 
 ));
-  const width = 800;
-  const height = 200;
+  const width = 2000;
+  const height = 500;
   const margin = { top: 20, right: 30, bottom: 40, left: 40 };
 
-  const svg = d3.select("#chart")
+  const svg = d3.select("#viz1-container")
     .append("svg")
     .attr("width", width)
     .attr("height", height);
