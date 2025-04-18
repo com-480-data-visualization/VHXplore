@@ -13,7 +13,7 @@ d3.csv("data/pldb.csv").then(csv_data => {
     }
 
 ));
-  const width = 1000;
+  const width = 1300;
   const height = 500;
   const margin = { top: 20, right: 30, bottom: 40, left: 40 };
 
