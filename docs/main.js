@@ -1,4 +1,4 @@
-d3.csv("/Milestones/milestone1/pldb.csv").then(csv_data => {
+d3.csv("../Milestones/milestone1/pldb.csv").then(csv_data => {
 
   console.log("Loaded");
   const data = csv_data
