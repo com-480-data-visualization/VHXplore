@@ -4,33 +4,47 @@
   <meta charset="UTF-8">
   <title>Programming Languages Visualizations</title>
   <script src="https://d3js.org/d3.v7.min.js"></script>
-  <style>
-    .dot {
-      fill: steelblue;
-      cursor: pointer;
-    }
-
-    .tooltip {
-      position: absolute;
-      background: #fff;
-      border: 1px solid #ccc;
-      padding: 6px;
-      border-radius: 4px;
-      pointer-events: none;
-      font-size: 14px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h2>Programming Languages Timeline</h2>
-  <div id="chart"></div>
+  <header>
+    <h1>Visualizations of Programming Languages</h1>
+</header>
+
+  <main>
+    <section id="viz1">
+        <h2>Programming Languages Timeline </h2>
+        <div id="viz1-container"></div>
+    </section>
+
+    <section id="viz2">
+        <h2>Visualization 2</h2>
+        <div id="viz2-container"></div>
+    </section>
+
+    <section id="viz3">
+        <h2>Visualization 3</h2>
+        <div id="viz3-container"></div>
+    </section>
+
+    <section id="viz4">
+        <h2>Visualization 4</h2>
+        <div id="viz4-container"></div>
+    </section>
+
+    <section id="viz5">
+        <h2>Visualization 5</h2>
+        <div id="viz5-container"></div>
+    </section>
+</main>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/viz1.js"></script>
+<script src="js/viz2.js"></script>
+<script src="js/viz3.js"></script>
+<script src="js/viz4.js"></script>
+<script src="js/viz5.js"></script>
 
 </body>
 </html>
-
-<script src="main.js"></script>
-<!-- Load d3.js -->
- <!--
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="/test/main.js"></script>
--->

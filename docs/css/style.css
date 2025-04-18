@@ -1,0 +1,15 @@
+
+.dot {
+  fill: steelblue;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 6px;
+  border-radius: 4px;
+  pointer-events: none;
+  font-size: 14px;
+}
