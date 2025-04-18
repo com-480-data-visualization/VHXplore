@@ -18,8 +18,83 @@
     </section>
 
     <section id="viz2">
-        <h2>Visualization 2</h2>
+
+        <h2>Language Planet Portal</h2>
+        
+        <div class="stars"></div>
+          <div class="planet-orbit">
+
+            <div class="planet-container" style="--i:0;">
+              <div class="planet planet--python" onclick="openDoor('python')">
+                <div class="planet__logo">
+                  <img class="planet__logo-img" src="img/python_logo.png" alt="Python Logo" />
+                </div>
+                <span class="planet__label">Python</span>
+              </div>
+            </div>
+
+            <div class="planet-container" style="--i:1;">
+              <div class="planet planet--java" onclick="openDoor('java')">
+                <div class="planet__logo">
+                  <img class="planet__logo-img" src="img/java_logo.png" alt="Java Logo" />
+                </div>
+                <span class="planet__label">Java</span>
+              </div>
+            </div>
+
+            <div class="planet-container" style="--i:2;">
+              <div class="planet planet--c" onclick="openDoor('c')">
+                <div class="planet__logo">
+                  <img class="planet__logo-img" src="img/c++_logo.png" alt="C++ Logo" />
+                </div>
+                <span class="planet__label">C++</span>
+              </div>
+            </div>
+
+            <div class="planet-container" style="--i:3;">
+              <div class="planet planet--php" onclick="openDoor('php')">
+                <div class="planet__logo">
+                  <img class="planet__logo-img" src="img/php_logo.png" alt="PHP Logo" />
+                </div>
+                <span class="planet__label">PHP</span>
+              </div>
+            </div>
+
+            <div class="planet-container" style="--i:4;">
+              <div class="planet planet--matlab" onclick="openDoor('matlab')">
+                <div class="planet__logo">
+                  <img class="planet__logo-img" src="img/matlab_logo.png" alt="MATLAB Logo" />
+                </div>
+                <span class="planet__label">MATLAB</span>
+              </div>
+            </div>
+
+          </div>
+
+          
+          <div id="story-modal" class="modal hidden">
+            <div class="modal-content">
+              <span class="close-btn" onclick="closeModal()">×</span>
+              <img id="python-logo" src="img/python_logo.png" alt="Python Logo" class="centered-logo" />
+              <div> What was the inspiration for the name "python" ? </div>
+
+              <div class="icon-row">
+                <div class="icon-item" onclick="selectSymbol('snake')">
+                  <img src="img/snake.png" alt="Snake" />
+                  <span id="snake-symbol"></span>
+                </div>
+                <div class="icon-item" onclick="selectSymbol('comedy')">
+                  <img src="img/monty.png" alt="Monty Python" />
+                  <span id="comedy-symbol"></span>
+                </div>
+              </div>
+
+              <div id="story-text" class="story hidden"></div>
+              <button id="toggle-btn" onclick="toggleStory()">Show Story</button>
+            </div>
+          </div>
         <div id="viz2-container"></div>
+
     </section>
 
     <section id="viz3">
