@@ -27,8 +27,6 @@ h2 {
   color: #d4d4d4;
 }
 
-#viz1-container,
-#viz3-container,
 .viz3-img {
   display: block;
   max-width: 90%;
@@ -37,7 +35,6 @@ h2 {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
-#viz4-container,
 .viz4-img {
   display: block;
   max-width: 90%;
@@ -46,14 +43,21 @@ h2 {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
-#viz5-container,
-#viz6-container {
-  width: 100%;
-  height: 500px;
-  background-color: #1e1e1e;
-  border: 1px solid #3c3c3c;
+.viz5-img {
+  display: block;
+  max-width: 50%;
+  margin: 1rem auto;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
+.viz6-img {
+  display: block;
+  max-width: 50%;
+  margin: 1rem auto;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
 
 .dot {
   fill: #ffd700;
