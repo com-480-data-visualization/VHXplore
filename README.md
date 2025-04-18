@@ -16,5 +16,3 @@ It contains:
 - Our project proposal as a .md file. [[link]](/Milestones/milestone1/Milestone1.md) 
 - A jupyter notebook containing our preliminary exploratory data analysis [[link]](/Milestones/milestone1/EDA.ipynb) 
 - The used datasets for the EDA
-
-Hanbo's branch! 
