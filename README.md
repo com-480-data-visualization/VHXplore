@@ -19,5 +19,5 @@ It contains:
 
 <b>Milestone 2</b>
 
-Link to the website skeleton: [[link]](https://com-480-data-visualization.github.io/VHXplore/docs/) 
+Link to the website skeleton: [[link]](https://com-480-data-visualization.github.io/VHXplore/) 
 
