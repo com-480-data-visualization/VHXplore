@@ -78,6 +78,16 @@ h2 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
+.details {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  background-color: #252526;
+  color: #d4d4d4;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
 
 @keyframes orbit-rotation {
   0% {

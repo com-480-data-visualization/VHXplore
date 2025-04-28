@@ -9,11 +9,14 @@ d3.csv("data/pldb.csv").then(csv_data => {
     {
       name: d.title,
       year: +d.appeared,       // Convert string to number
-      creator: d.creators
+      creator: d.creators,
+      country: d.country,
+      bookcount: +d.bookCount,
+      type: d.type,
     }
 
 ));
-  const width = 1640;
+  const width = 1340;
   const height = 500;
   const margin = { top: 20, right: 30, bottom: 40, left: 40 };
 
@@ -36,6 +39,11 @@ d3.csv("data/pldb.csv").then(csv_data => {
     .append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
+  
+  const details = d3.select("body")
+    .append("div")
+    .attr("class", "details")
+    .style("opacity", 0);
 
   // Draw dots
   svg.selectAll(".dot")
@@ -44,14 +52,14 @@ d3.csv("data/pldb.csv").then(csv_data => {
   .append("circle")
   .attr("class", "dot")
   .attr("cx", d => x(d.year))
-  .attr("cy", height / 2)
-  .attr("r", 5)
+  .attr("cy", height-margin.bottom)
+  .attr("r", 8)
   .on("mouseover", (event, d) => {
     // Enlarge the circle
     d3.select(event.currentTarget)
       .transition()
       .duration(200)
-      .attr("r", 8);
+      .attr("r", 10);
 
     // Show tooltip
     tooltip.transition().duration(200).style("opacity", 1);
@@ -64,13 +72,23 @@ d3.csv("data/pldb.csv").then(csv_data => {
     d3.select(event.currentTarget)
       .transition()
       .duration(200)
-      .attr("r", 5);
-
+      .attr("r", 8);
     // Hide tooltip
     tooltip.transition().duration(300).style("opacity", 0);
-  });
+  })
 
-    
+  .on("click", (event, d) => {
+    // Show alert with name and year
+    details.transition().duration(200).style("opacity", 1);
+    if(d.type == "pl"){
+      type = "Programming Language";
+    }
+    details.html(`<strong>${d.name}</strong><br>${d.year}<br>${d.creator} <br>Developed in ${d.country} <br>Books:${d.bookcount} <br>Type:${type}`)
+      .style("left", (40) + "px")
+      .style("top", (200) + "px");
+  }
+  );
+
 });
 
 // Sample data
