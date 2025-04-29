@@ -19,8 +19,17 @@
         <meta charset="utf-8">
     </section>
 
-    <section id="viz2">
+    <section id="viz-bargraph">
+      <h2>Bar graph </h2>
+      <button class='bargraph-button' onclick="update('appeared_data')">Appeared</button>
+      <button class='bargraph-button' onclick="update('bookcount_data')">Book Count</button>
+    
+      <div id="viz-bargraph-container"></div>
+      <!DOCTYPE html>
+      <meta charset="utf-8">
+    </section>
 
+    <section id="viz2">
         <h2>Origin stories of programming languages (click on python!)</h2>
         <div id="viz2-container"></div>
         <div class="stars"></div>
@@ -137,6 +146,7 @@
 <script src="js/viz4.js"></script>
 <script src="js/viz5.js"></script>
 <script src="js/viz6.js"></script>
+<script src="js/vis-bargraph.js"></script>
 
 </body>
 </html>

@@ -89,6 +89,15 @@ h2 {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
+.bargraph-button {
+  background-color: #3e3e3e;
+  color: #aaa9a9;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 @keyframes orbit-rotation {
   0% {
     transform: rotate(0deg);
