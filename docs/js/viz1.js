@@ -1,11 +1,10 @@
 d3.csv("data/pldb.csv").then(csv_data => {
-
   console.log("Loaded");
-  const data = csv_data
-    .filter(d => d.rank < 50)
-    .filter(d => +d.appeared > 1900)
+  const data_unfiltered = csv_data
+    .filter(d => d.rank < 3000)    // filter expects callback function (criterion) to be applied to all rows. If true, it keeps otherwise it discards.
+    .filter(d => +d.appeared > 1950)
     .filter(d => d.creators != "")
-    .map(d => (
+    .map(d => (                 // Map expects callback funciton which defines mapping and this is applied to all rows
     {
       name: d.title,
       year: +d.appeared,       // Convert string to number
@@ -14,8 +13,18 @@ d3.csv("data/pldb.csv").then(csv_data => {
       bookcount: +d.bookCount,
       type: d.type,
     }
-
 ));
+  const seen = new Map();
+  const data = data_unfiltered.filter(d => {
+    const existing = seen.get(d.year);
+    if(!existing || existing.rank > d.rank){
+      seen.set(d.year, d);
+      return true;
+    }
+    return false;
+  });
+
+
   const width = 1340;
   const height = 300;
   const margin = { top: 20, right: 30, bottom: 40, left: 40 };
@@ -32,9 +41,11 @@ d3.csv("data/pldb.csv").then(csv_data => {
   // X-axis
   svg.append("g")
     .attr("transform", `translate(0, ${height - margin.bottom})`)
-    .call(d3.axisBottom(x).tickFormat(d3.format("d")));
+    .call(d3.axisBottom(x).tickFormat(d3.format("d")))
+    .selectAll("text")
+    .style("font-size", "20px")
+    .style("transform", "translate(0%, 50%)");
 
-  // Tooltip
 
   const details = d3.select("#viz1")
     .append("div")
@@ -58,10 +69,6 @@ d3.csv("data/pldb.csv").then(csv_data => {
       .duration(200)
       .attr("r", 8)
       .style("fill", "#6A9955");
-    // Hide tooltip
-    tooltip.transition()
-    .duration(300)
-    .style("opacity", 0)
   })
 
   .on("mouseover", (event, d) => {
@@ -77,9 +84,8 @@ d3.csv("data/pldb.csv").then(csv_data => {
     .style("border-radius", "5px")
     .style("border-color", "#9CDCFE");
 
-
     details.transition()
-    .duration(2000)
+    .duration(1000)
     .style("opacity", 1)
     .on("end", function repeat() {
       d3.select(this)
@@ -110,7 +116,7 @@ d3.csv("data/pldb.csv").then(csv_data => {
     
     // Midpoint x between dot and detail box for the elbow
     const midX = (dotX + detailX) / 2;
-    const midY = (dotY + detailY) / 2 + 50;
+    const midY = (dotY + detailY + detailRect.height/2) / 2 ;
 
     // Optional: adjust target Y to be at center or bottom of box
     const targetX = detailX;
