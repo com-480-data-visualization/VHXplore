@@ -60,34 +60,24 @@ h2 {
 }
 
 .dot {
-  fill: #ffd700;
+  fill: 	#DCDCAA;
   /* 明亮金黄，VSCode 风格 */
   stroke: #333;
   stroke-width: 1px;
 }
 
-.tooltip {
-  position: absolute;
-  background: #252526;
-  color: #d4d4d4;
-  border: 1px solid #3c3c3c;
-  padding: 6px;
-  border-radius: 4px;
-  pointer-events: none;
-  font-size: 14px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
 
 .details {
   position: absolute;
-  top: 8px;
-  left: 16px;
+  left: 50%;
+  transform: translate(-50%, -170%); /* Center horizontally & vertically */ 
   background-color: #252526;
   color: #d4d4d4;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
+
 
 .bargraph-button {
   background-color: #3e3e3e;
