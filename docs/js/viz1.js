@@ -23,7 +23,7 @@ d3.csv("data/pldb.csv").then(csv_data => {
     }
     return false;
   });
-
+  console.log(data.sort((a, b) => a.year - b.year));
 
   const width = 1340;
   const height = 300;
@@ -102,7 +102,7 @@ d3.csv("data/pldb.csv").then(csv_data => {
     if(d.type == "pl"){
       type = "Programming Language";
     }
-    details.html(`<strong>${d.name}</strong><br>${d.year}<br>${d.creator} <br>Developed in ${d.country} <br>Books:${d.bookcount} <br>Type:${type}`)
+    details.html(`<strong>${d.name}</strong><br>${d.year}<br>${d.creator} <br>Type:${type}`)
     
     const dotRect = event.currentTarget.getBoundingClientRect();
     const detailRect = details.node().getBoundingClientRect();

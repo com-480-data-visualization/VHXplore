@@ -193,7 +193,7 @@ d3.csv("data/pldb.csv").then(csv_data => {
           const pageX = svgRect.left + cx + scrollX;
           const pageY = svgRect.top + cy + scrollY;
 
-          details.html(`<strong>${d.group}</strong><br>Value: ${d.value}`)
+          details.html(`<strong>${d.group}</strong><br>Count (Relative Scale): ${d.value}`)
             .style("left", (event.pageX + 10) + "px")
             .style("top", (pageY - 10) + "px");
         }
