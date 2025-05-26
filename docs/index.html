@@ -5,43 +5,203 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Programming Languages Visualizations</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/styles_stories.css">
+  <!-- v3 CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
 </head>
 <body>
-  <header>
-    <h1>Visualizations of Programming Languages</h1>
-  </header>
 
-  <main>
-    <section id="viz1">
+  <div id="fullpage" role="main">
+
+    <div class="section" id="intro">
+      <header>
+        <h1>Visualizations of Programming Languages</h1>
+      </header>
+    </div>
+
+    <div class="section" id="viz1">
         <h2>Programming Languages Timeline </h2>
-        <div id="viz1-container"></div>
-    </section>
 
-    <section id="viz2">
-        <h2>Visualization 2</h2>
+        <div id="viz1-container">
+          <svg id="line-overlay"
+          width="100%"
+          height="100%"
+          style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1;"></svg>
+        </div>
+    </div>
+
+    <div class="section" id="viz-bargraph">
+      <h2>Bar graph </h2>
+      <button class='bargraph-button' onclick="update('bookcount_data')">Book Count</button>
+      <button class='bargraph-button' onclick="update('papercount_data')">Paper Count</button>
+      <button class='bargraph-button' onclick="update('number_of_users_data')">Number of Users</button>
+      <div id="title"></div>
+      <div id="viz-bargraph-container">
+      </div>
+    </div>
+
+    <div class="section" id="viz2">
+
+        <h2>Origin stories of programming languages (click on python!)</h2>
         <div id="viz2-container"></div>
-    </section>
+        <div class="stars"></div>
+          <div class="planet-orbit">
 
-    <section id="viz3">
-        <h2>Visualization 3</h2>
-        <div id="viz3-container"></div>
-    </section>
+            <div class="planet-container" style="--i:0;">
+              <div class="planet planet--python" onclick="openDoor('python')">
+                <div class="planet__logo">
+                  <img class="planet__logo-img" src="img/python_logo.png" alt="Python Logo" />
+                </div>
+                <span class="planet__label">Python</span>
+              </div>
+            </div>
 
-    <section id="viz4">
-        <h2>Visualization 4</h2>
-        <div id="viz4-container"></div>
-    </section>
+            <div class="planet-container" style="--i:1;">
+              <div class="planet planet--java" onclick="openDoor('java')">
+                <div class="planet__logo">
+                  <img class="planet__logo-img" src="img/java_logo.png" alt="Java Logo" />
+                </div>
+                <span class="planet__label">Java</span>
+              </div>
+            </div>
 
-    <section id="viz5">
-        <h2>Visualization 5</h2>
-        <div id="viz5-container"></div>
-    </section>
+            <div class="planet-container" style="--i:2;">
+              <div class="planet planet--c" onclick="openDoor('c')">
+                <div class="planet__logo">
+                  <img class="planet__logo-img" src="img/c++_logo.png" alt="C++ Logo" />
+                </div>
+                <span class="planet__label">C++</span>
+              </div>
+            </div>
 
-    <section id="viz6">
-      <h2>Visualization 6</h2>
-      <div id="viz6-container"></div>
-  </section>
-</main>
+            <div class="planet-container" style="--i:3;">
+              <div class="planet planet--php" onclick="openDoor('php')">
+                <div class="planet__logo">
+                  <img class="planet__logo-img" src="img/php_logo.png" alt="PHP Logo" />
+                </div>
+                <span class="planet__label">PHP</span>
+              </div>
+            </div>
+
+            <div class="planet-container" style="--i:4;">
+              <div class="planet planet--matlab" onclick="openDoor('matlab')">
+                <div class="planet__logo">
+                  <img class="planet__logo-img" src="img/matlab_logo.png" alt="MATLAB Logo" />
+                </div>
+                <span class="planet__label">MATLAB</span>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div id="story-modal" class="modal hidden">
+            <div class="modal-content">
+              <span class="close-btn" onclick="closeModal()">×</span>
+
+              <!-- ✅ Python 内容 -->
+              <div id="python-content-py" class="language-content hidden">
+                <img id="python-logo-py" src="img/python_logo.png" alt="Python Logo" class="centered-logo" />
+                <div> What was the inspiration for the name "python" ? </div>
+                <div class="icon-row">
+                  <div class="icon-item" onclick="selectSymbolPython('snake')">
+                    <img src="img/snake.png" alt="Snake" />
+                    <span id="snake-symbol-py"></span>
+                  </div>
+                  <div class="icon-item" onclick="selectSymbolPython('comedy')">
+                    <img src="img/monty.png" alt="Monty Python" />
+                    <span id="comedy-symbol-py"></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Java -->
+              <div id="java-content-jv" class="language-content hidden">
+
+                <div class="animation-wrapper-jv">
+                  <div id="icon-animation-jv" class="icon-scene-jv">
+                    <span id="acorn-icon-jv" class="icon-item-jv">🌰</span>
+                    <span id="tm-icon-jv" class="icon-item-jv hidden">™️</span>
+                    <span id="coffee-icon-jv" class="icon-item-jv hidden">☕</span>
+                  </div>
+                </div>
+
+                <div class="question-jv">
+                  <p class="question-text">Is it true that Java used to be called Oak?</p>
+                  <div class="question-buttons">
+                    <button onclick="answerJavaQuestion(true)">Yes</button>
+                    <button onclick="answerJavaQuestion(false)">No</button>
+                  </div>
+                  <div id="feedback-jv" class="question-feedback hidden"></div>
+                </div>
+
+              </div>
+
+              <!-- ✅ PHP 内容 -->
+              <div id="php-content-php" class="language-content hidden">
+                <!-- 动画展示区 -->
+                <div class="animation-wrapper-php">
+                  <div id="php-animation-container">
+                    <span id="php-text" class="php-step-a">
+                      <span class="keep">P</span><span class="fade">e</span><span class="fade">r</span><span class="fade">s</span><span class="fade">o</span><span class="fade">n</span><span class="fade">a</span><span class="fade">l</span>
+                      &nbsp;
+                      <span class="keep">H</span><span class="fade">o</span><span class="fade">m</span><span class="fade">e</span>
+                      &nbsp;
+                      <span class="keep">P</span><span class="fade">a</span><span class="fade">g</span><span class="fade">e</span>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- 问答交互 -->
+                <div class="question-php">
+                  <p class="question-text">Is PHP a recursive acronym?</p>
+                  <div class="question-buttons">
+                    <button onclick="answerPHPQuestion(true)">Yes</button>
+                    <button onclick="answerPHPQuestion(false)">No</button>
+                  </div>
+                  <div id="feedback-php" class="question-feedback hidden"></div>
+                </div>
+              </div>
+
+
+
+              <!-- ✅ 通用区域 -->
+              <div id="story-text" class="story hidden"></div>
+              <button id="toggle-btn" onclick="toggleStory()">Show Story</button>
+            </div>
+          </div>
+
+        </div>
+
+    <div class="section" id="viz3">
+        <h2>Performance comparison of programming languages</h2>
+        <div id="viz3-container">
+          <img src="img/performance.jpg" alt="Performance Visualization" class="viz3-img" />
+        </div>
+    </div>
+
+    <div class="section" id="viz4">
+        <h2>Mapping programming languages and their countries</h2>
+        <div id="viz4-container">
+          <img src="img/mapping.jpg" alt="Mapping Visualization" class="viz4-img" />
+        </div>
+    </div>
+
+    <div class="section" id="viz5">
+        <h2>Graph of connections between programming languages</h2>
+        <div id="viz5-container">
+          <img src="img/graph.png" alt="Mapping Visualization" class="viz5-img" />
+        </div>
+    </div>
+
+    <div class="section" id="viz6">
+      <h2>Popularity of programming languages over time</h2>
+      <div id="viz6-container">
+        <img src="img/ranking.png" alt="Mapping Visualization" class="viz6-img" />
+      </div>
+  </div>
+</div>
+>>>>>>> c0032f9 (added stories for Java and PHP; pages divided)
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="js/main.js"></script>
@@ -52,5 +212,21 @@
 <script src="js/viz5.js"></script>
 <script src="js/viz6.js"></script>
 
+<!-- v3 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+
+<script>
+new fullpage('#fullpage', {
+  autoScrolling: true,
+  navigation: true,
+  anchors: ['intro', 'timeline', 'bargraph', 'stories', 'performance', 'mapping', 'graph', 'ranking'],
+  navigationTooltips: ['Intro', 'Timeline', 'Bargraph', 'Stories', 'Performance', 'Mapping', 'Graph', 'Ranking'],
+  showActiveTooltip: true,
+  scrollOverflow: false
+});
+</script>
+
+
 </body>
+
 </html>

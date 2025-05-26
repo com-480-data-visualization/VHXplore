@@ -12,12 +12,25 @@ header {
   padding: 10px;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
 main {
   margin: 20px;
 }
 
-section {
-  margin-bottom: 40px;
+.section {
+  overflow: hidden;
+}
+
+#fullpage {
+  height: 100%;
+  width: 100%;
 }
 
 
@@ -33,16 +46,31 @@ h2 {
 }
 
 .dot {
-  fill: steelblue;
-  cursor: pointer;
+
+  fill: 	#DCDCAA;
+  /* 明亮金黄，VSCode 风格 */
+  stroke: #333;
+  stroke-width: 1px;
 }
 
-.tooltip {
+
+.details {
   position: absolute;
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 6px;
-  border-radius: 4px;
-  pointer-events: none;
-  font-size: 14px;
+  left: 50%;
+  transform: translate(-50%, -170%); /* Center horizontally & vertically */
+  background-color: #252526;
+  color: #d4d4d4;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.bargraph-button {
+  background-color: #3e3e3e;
+  color: #aaa9a9;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
 }
