@@ -7,10 +7,13 @@ const stories = {
 };
 
 let selected = { snake: false, comedy: false };
-let storyShown = false;
+let storyShown = {};
 
 function openDoor(language) {
-  document.getElementById("story-modal").classList.remove("hidden");
+  const modal = document.getElementById("story-modal");
+  modal.classList.remove("hidden");
+  modal.scrollTo(0, 0);  // 🔸 自动滚到顶部
+
   document.querySelectorAll(".language-content").forEach(el => el.classList.add("hidden"));
 
   switch (language) {
@@ -20,44 +23,59 @@ function openDoor(language) {
     case 'java':
       openJavaStoryJv();
       break;
-    // case 'c': openCStory(); break;
+    case 'c':
+      openCPPStory();
+      break;
     case 'php':
       openPHPStory();
       break;
-    // case 'matlab': openMatlabStory(); break;
+    case 'matlab':
+      openMatlabStory();
+      break;
   }
 }
 
+
 function openPythonStory() {
   document.getElementById("python-content-py").classList.remove("hidden");
-  selected = { snake: false, comedy: false };
-  storyShown = false;
 
-  document.getElementById("snake-symbol-py").innerText = "";
-  document.getElementById("comedy-symbol-py").innerText = "";
-  document.getElementById("story-text").classList.add("hidden");
-  document.getElementById("toggle-btn").innerText = "Show Story";
+  document.getElementById("feedback-python").className = "question-feedback hidden";
+  document.getElementById("feedback-python").innerText = "";
+
+  document.getElementById("python-monty-img").classList.add("hidden");
+  storyShown['python'] = false;
   document.getElementById("story-text").innerHTML = stories.python;
-}
-
-function selectSymbolPython(which) {
-  let symbolId = which === 'snake' ? "snake-symbol-py" : "comedy-symbol-py";
-  selected[which] = true;
-  document.getElementById(symbolId).innerText = which === 'snake' ? "❌" : "✅";
-  const el = document.getElementById(symbolId);
-  el.classList.remove("shake");
-  void el.offsetWidth;
-  el.classList.add("shake");
-}
-
-function openJavaStoryJv() {
-  document.getElementById("java-content-jv").classList.remove("hidden");
-  storyShown = false;
-
-  // 清除文字区域
   document.getElementById("story-text").classList.add("hidden");
   document.getElementById("toggle-btn").innerText = "Show Story";
+  document.getElementById("toggle-btn").setAttribute("onclick", "toggleStory('python')");
+
+}
+
+function answerPythonQuestion(isYes) {
+  const feedback = document.getElementById("feedback-python");
+  const montyImg = document.getElementById("python-monty-img");
+
+  if (isYes) {
+    // ❌ 错误答案
+    feedback.className = "question-feedback incorrect";
+    feedback.innerText = "Nope! Python was named after Monty Python’s Flying Circus.";
+  } else {
+    // ✅ 正确答案
+    feedback.className = "question-feedback correct";
+    feedback.innerText = "Correct! It’s not the snake — it’s the comedy troupe.";
+  }
+
+  feedback.classList.remove("hidden");
+  montyImg.classList.remove("hidden");
+}
+
+function openJavaStory() {
+  document.getElementById("java-content-jv").classList.remove("hidden");
+  storyShown['java'] = false;  // 显式初始化
   document.getElementById("story-text").innerHTML = stories.java;
+  document.getElementById("story-text").classList.add("hidden");
+  document.getElementById("toggle-btn").innerText = "Show Story";
+  document.getElementById("toggle-btn").setAttribute("onclick", "toggleStory('java')");
 
 
   // 初始化图标
@@ -138,6 +156,12 @@ function openPHPStory() {
   const feedback = document.getElementById("feedback-php");
   feedback.className = "question-feedback hidden";
   feedback.innerText = "";
+
+  storyShown['php'] = false;
+  document.getElementById("story-text").innerHTML = stories.php;
+  document.getElementById("story-text").classList.add("hidden");
+  document.getElementById("toggle-btn").innerText = "Show Story";
+  document.getElementById("toggle-btn").setAttribute("onclick", "toggleStory('php')");
 }
 
 function answerPHPQuestion(isYes) {
@@ -261,15 +285,235 @@ function startPHPAnimationLoop() {
 
 }
 
+function openCPPStory() {
+  document.getElementById("c-content-cpp").classList.remove("hidden");
+
+  // 初始化指针状态（指向 B，即 30deg）
+  const hand = document.getElementById("cpp-hand");
+  hand.style.transform = "rotate(30deg)";
+
+  // 清空反馈
+  const feedback = document.getElementById("feedback-cpp");
+  feedback.className = "question-feedback hidden";
+  feedback.innerText = "";
+
+  storyShown['c'] = false;
+  document.getElementById("story-text").innerHTML = stories.c;
+  document.getElementById("story-text").classList.add("hidden");
+  document.getElementById("toggle-btn").innerText = "Show Story";
+  document.getElementById("toggle-btn").setAttribute("onclick", "toggleStory('c')");
+
+}
+
+function answerCPPQuestion(isYes) {
+  const hand = document.getElementById("cpp-hand");
+  const feedback = document.getElementById("feedback-cpp");
+
+  if (isYes) {
+    // ✅ 正确答案：指针转向 C（60deg）
+    hand.style.transform = "rotate(60deg)";
+    feedback.className = "question-feedback correct";
+    feedback.innerText = "Correct! C came right after B.";
+  } else {
+    // ❌ 错误答案：表盘抖一抖
+    const clock = document.getElementById("cpp-clock-face");
+    feedback.className = "question-feedback incorrect";
+    feedback.innerText = "Nope! B came before C — it's just the next letter.";
+
+    // 抖动动画
+    clock.classList.remove("shake");
+    void clock.offsetWidth;
+    clock.classList.add("shake");
+  }
+
+  feedback.classList.remove("hidden");
+}
+
+function openMatlabStory() {
+  document.getElementById("matlab-content-mt").classList.remove("hidden");
+
+  // 重置反馈
+  const feedback = document.getElementById("feedback-matlab");
+  feedback.className = "question-feedback hidden";
+  feedback.innerText = "";
+
+  // 重置头像动画
+  const matt = document.querySelector(".matt-img");
+  matt.classList.remove("shake");
+
+  storyShown['matlab'] = false;
+  document.getElementById("story-text").innerHTML = stories.matlab;
+  document.getElementById("story-text").classList.add("hidden");
+  document.getElementById("toggle-btn").innerText = "Show Story";
+  document.getElementById("toggle-btn").setAttribute("onclick", "toggleStory('matlab')");
+
+}
+
+function answerMatlabQuestion(isYes) {
+  const feedback = document.getElementById("feedback-matlab");
+  const matt = document.querySelector(".matt-img");
+
+  if (isYes) {
+    // ❌ 错误答案：头像抖动
+    feedback.className = "question-feedback incorrect";
+    feedback.innerText = "Nice try! But MATLAB stands for Matrix Laboratory.";
+
+    matt.classList.remove("shake");
+    void matt.offsetWidth;
+    matt.classList.add("shake");
+
+  } else {
+    // ✅ 正确答案
+    feedback.className = "question-feedback correct";
+    feedback.innerText = "Correct! It's short for Matrix Laboratory, not Matt's lab.";
+  }
+
+  feedback.classList.remove("hidden");
+}
+
 
 function closeModal() {
   document.getElementById("story-modal").classList.add("hidden");
+  if (phpAnimationInterval) {
+  clearInterval(phpAnimationInterval);
+  phpAnimationInterval = null;
 }
 
-function toggleStory() {
-  storyShown = !storyShown;
+}
+
+function toggleStory(language) {
+  storyShown[language] = !storyShown[language];
   const text = document.getElementById("story-text");
   const btn = document.getElementById("toggle-btn");
-  text.classList.toggle("hidden", !storyShown);
-  btn.innerText = storyShown ? "Hide Story" : "Show Story";
+  text.classList.toggle("hidden", !storyShown[language]);
+  btn.innerText = storyShown[language] ? "Hide Story" : "Show Story";
+}
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    const modal = document.getElementById("story-modal");
+    if (!modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  }
+});
+
+
+window.addEventListener("load", () => {
+  tsParticles.load("tsparticles", {
+    fullScreen: { enable: false },
+    background: {
+      color: "transparent"
+    },
+    particles: {
+      number: {
+        value: 700,
+        density: {
+          enable: true,
+          area: 800
+        }
+      },
+      color: {
+        value: ["#ffffff", "#cceeff", "#88bbff"]
+      },
+      shape: {
+        type: "circle"
+      },
+      opacity: {
+        value: 0.6,
+        random: true,
+        anim: {
+          enable: true,
+          speed: 1,
+          opacity_min: 0.3,
+          sync: false
+        }
+      },
+      size: {
+        value: 2.5,
+        random: true
+      },
+      move: {
+        enable: true,
+        speed: 0.8,
+        direction: "none", // ✅ 不指定方向，配合 straight:false 和 random:true 模拟银河盘旋
+        random: true,
+        straight: false,
+        outModes: {
+          default: "out"
+        }
+      }
+    },
+    interactivity: {
+      events: {
+        onhover: {
+          enable: true,
+          mode: ["bubble", "attract"]  // ✅ 鼠标悬停发光 + 吸引
+        },
+        onclick: {
+          enable: true,
+          mode: "push" // ✅ 点击添加星星
+        }
+      },
+      modes: {
+        attract: {
+          distance: 150,
+          duration: 0.4,
+          speed: 1
+        },
+        bubble: {
+          distance: 120,
+          size: 4,
+          duration: 2,
+          opacity: 1
+        },
+        push: {
+          quantity: 4 // 每次点击生成 4 颗星
+        }
+      }
+    },
+    detectRetina: true
+  });
+});
+
+
+const planets = document.querySelectorAll('.planet');
+const centerX = window.innerWidth / 2;
+const centerY = window.innerHeight / 2 + 20; // 可调视觉中心高度
+const radiusX = 260;  // 横向半径
+const radiusY = 80;   // 纵向压缩，制造椭圆感
+const maxScale = 1.2;
+const minScale = 0.6;
+
+planets.forEach((planet, index) => {
+  const angleOffset = (360 / planets.length) * index;
+  animatePlanet(planet, angleOffset);
+});
+
+function animatePlanet(planet, initialAngle) {
+  let angle = initialAngle;
+
+  function update() {
+    const rad = angle * Math.PI / 180;
+
+    // 👇 椭圆轨道位置（x/y），仿 3D 投影
+    const x = centerX + radiusX * Math.cos(rad);
+    const y = centerY + radiusY * Math.sin(rad); // 垂直方向压缩
+
+    // 👇 使用 sin 值映射到缩放（前近后远）
+    const scale = minScale + (maxScale - minScale) * (Math.sin(rad) + 1) / 2;
+
+    // 👇 模拟透明度远近感
+    const opacity = 0.4 + 0.6 * ((scale - minScale) / (maxScale - minScale));
+
+    // 👇 设置 transform 和视觉层级
+    planet.style.transform = `translate(${x - 40}px, ${y - 40}px) scale(${scale})`;
+    planet.style.opacity = opacity;
+    planet.style.zIndex = Math.round(scale * 100);
+
+    angle = (angle + 0.3) % 360;
+    requestAnimationFrame(update);
+  }
+
+  update();
 }

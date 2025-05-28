@@ -41,12 +41,10 @@
     </div>
 
     <div class="section" id="viz2">
-
+      <div id="tsparticles"></div>
         <h2>Origin stories of programming languages (click on python!)</h2>
         <div id="viz2-container"></div>
-        <div class="stars"></div>
           <div class="planet-orbit">
-
             <div class="planet-container" style="--i:0;">
               <div class="planet planet--python" onclick="openDoor('python')">
                 <div class="planet__logo">
@@ -102,18 +100,15 @@
               <!-- ✅ Python 内容 -->
               <div id="python-content-py" class="language-content hidden">
                 <img id="python-logo-py" src="img/python_logo.png" alt="Python Logo" class="centered-logo" />
-                <div> What was the inspiration for the name "python" ? </div>
-                <div class="icon-row">
-                  <div class="icon-item" onclick="selectSymbolPython('snake')">
-                    <img src="img/snake.png" alt="Snake" />
-                    <span id="snake-symbol-py"></span>
-                  </div>
-                  <div class="icon-item" onclick="selectSymbolPython('comedy')">
-                    <img src="img/monty.png" alt="Monty Python" />
-                    <span id="comedy-symbol-py"></span>
-                  </div>
+                <p class="question-text">Was Python named after the snake?</p>
+                <div class="question-buttons">
+                  <button onclick="answerPythonQuestion(true)">Yes</button>
+                  <button onclick="answerPythonQuestion(false)">No</button>
                 </div>
+                <div id="feedback-python" class="question-feedback hidden"></div>
+                <img id="python-monty-img" src="img/monty_python.jpg" alt="Monty Python" class="monty-img hidden" />
               </div>
+
 
               <!-- Java -->
               <div id="java-content-jv" class="language-content hidden">
@@ -163,6 +158,52 @@
                 </div>
               </div>
 
+              <!-- C++ 内容 -->
+              <div id="c-content-cpp" class="language-content hidden">
+                <div class="cpp-clock-wrapper">
+                  <div id="cpp-clock-face">
+                    <!-- 字母 A ~ L -->
+                    <div class="clock-letter" style="--i:1;">A</div>
+                    <div class="clock-letter" style="--i:2;">B</div>
+                    <div class="clock-letter" style="--i:3;">C</div>
+                    <div class="clock-letter" style="--i:4;">D</div>
+                    <div class="clock-letter" style="--i:5;">E</div>
+                    <div class="clock-letter" style="--i:6;">F</div>
+                    <div class="clock-letter" style="--i:7;">G</div>
+                    <div class="clock-letter" style="--i:8;">H</div>
+                    <div class="clock-letter" style="--i:9;">I</div>
+                    <div class="clock-letter" style="--i:10;">J</div>
+                    <div class="clock-letter" style="--i:11;">K</div>
+                    <div class="clock-letter" style="--i:12;">L</div>
+
+                    <!-- 钟表指针 -->
+                    <div id="cpp-hand"></div>
+                  </div>
+                </div>
+
+                <!-- 问题 + 按钮 -->
+                <div class="question-cpp">
+                  <p class="question-text">Is B the direct predecessor of C?</p>
+                  <div class="question-buttons">
+                    <button onclick="answerCPPQuestion(true)">Yes</button>
+                    <button onclick="answerCPPQuestion(false)">No</button>
+                  </div>
+                  <div id="feedback-cpp" class="question-feedback hidden"></div>
+                </div>
+              </div>
+
+              <!-- MATLAB 内容 -->
+              <div id="matlab-content-mt" class="language-content hidden">
+                <div class="matlab-question-wrapper">
+                  <img src="img/matt_placeholder.png" alt="Portrait of 'Matt'" class="matt-img" />
+                  <p class="question-text">Is MATLAB named after a guy named Matt?</p>
+                  <div class="question-buttons">
+                    <button onclick="answerMatlabQuestion(true)">Yes</button>
+                    <button onclick="answerMatlabQuestion(false)">No</button>
+                  </div>
+                  <div id="feedback-matlab" class="question-feedback hidden"></div>
+                </div>
+              </div>
 
 
               <!-- ✅ 通用区域 -->
@@ -206,6 +247,7 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/viz1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 <script src="js/viz2.js"></script>
 <script src="js/viz3.js"></script>
 <script src="js/viz4.js"></script>
@@ -217,6 +259,7 @@
 
 <script>
 new fullpage('#fullpage', {
+  licenseKey: 'OPEN-SOURCE-GPLV3', // ✅ 添加此行
   autoScrolling: true,
   navigation: true,
   anchors: ['intro', 'timeline', 'bargraph', 'stories', 'performance', 'mapping', 'graph', 'ranking'],
@@ -224,6 +267,7 @@ new fullpage('#fullpage', {
   showActiveTooltip: true,
   scrollOverflow: false
 });
+
 </script>
 
 
