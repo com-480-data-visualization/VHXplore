@@ -14,7 +14,26 @@
   <main>
     <section id="viz1">
         <h2>Programming Languages Timeline </h2>
-        <div id="viz1-container"></div>
+        <div id="viz1-container">
+          <svg id="line-overlay"
+          width="100%"
+          height="100%"
+          style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1;"></svg>
+        </div>
+        <!DOCTYPE html>
+        <meta charset="utf-8">
+    </section>
+
+    <section id="viz-bargraph">
+      <h2>Bar graph </h2>
+      <button class='bargraph-button' onclick="update('bookcount_data')">Book Count</button>
+      <button class='bargraph-button' onclick="update('papercount_data')">Paper Count</button>
+      <button class='bargraph-button' onclick="update('number_of_users_data')">Number of Users</button>
+      <div id="title"></div>
+      <div id="viz-bargraph-container">
+      </div>
+      <!DOCTYPE html>
+      <meta charset="utf-8">
     </section>
 
     <section id="viz2">
@@ -107,8 +126,9 @@
 
     <section id="viz4">
         <h2>Mapping programming languages and their countries</h2>
-        <div id="viz4-container">
-          <img src="img/mapping.jpg" alt="Mapping Visualization" class="viz4-img" />
+        <div id="viz-map-container">
+          <svg id="world-map" width="1000" height="600"></svg>
+          <div class="tooltip" id="map-tooltip" style="position:absolute; display:none; border:1px solid #ccc; padding:5px;"></div>
         </div>
     </section>
 
@@ -135,6 +155,7 @@
 <script src="js/viz4.js"></script>
 <script src="js/viz5.js"></script>
 <script src="js/viz6.js"></script>
+<script src="js/vis-bargraph.js"></script>
 
 </body>
 </html>
