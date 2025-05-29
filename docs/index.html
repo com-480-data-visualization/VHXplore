@@ -8,15 +8,22 @@
   <link rel="stylesheet" href="css/styles_stories.css">
   <!-- v3 CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"
+    }
+  }
+  </script>
+
 </head>
 <body>
 
   <div id="fullpage" role="main">
 
     <div class="section" id="intro">
-      <header>
-        <h1>Visualizations of Programming Languages</h1>
-      </header>
+      <div id="intro-canvas-container" style="width:100%; height:100%; position:relative;"></div>
     </div>
 
     <div class="section" id="viz1">
@@ -267,8 +274,18 @@ new fullpage('#fullpage', {
   showActiveTooltip: true,
   scrollOverflow: false
 });
-
 </script>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module" src="js/intro.js"></script>
 
 
 </body>

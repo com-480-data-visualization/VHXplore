@@ -103,3 +103,8 @@ h2 {
   cursor: pointer;
 }
 
+#intro {
+  position: relative;
+  height: 100vh; /* 或者你可以用 800px 测试 */
+  overflow: hidden;
+}
