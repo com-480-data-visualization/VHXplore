@@ -88,8 +88,15 @@ h2 {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
+  text-align: center;
 }
 
+#bargraph-button-container{
+  display: flex;
+  justify-content: center; /* centers the buttons horizontally */
+  gap: 10px; /* optional: adds spacing between buttons */
+  margin-bottom: 20px; /* optional: adds spacing below the button group */
+}
 @keyframes orbit-rotation {
   0% {
     transform: rotate(0deg);
@@ -385,13 +392,14 @@ button {
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
-#timeline-explanation{
+#timeline-explanation {
   max-width: 800px;
   margin: 0 auto 50px auto;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
   color: #ddd;
 }
+
 
 #timeline-explanation h2 {
   color: #9CDCFE;

@@ -29,7 +29,7 @@
     </div>
     
     <div class="section" id="viz1">
-      <div id="timeline-explanation">
+      <div id="timeline-explanation" >
         <h2>How Programming Languages Evolved</h2>
         <p>
           This timeline shows when different programming languages came to life.
@@ -49,14 +49,16 @@
       <div id="timeline-explanation">
         <h2>Explore Programming Languages by Popularity & Influence</h2>
         <p>
-          This bar chart lets you compare programming languages in different ways.
+          This chart lets you compare programming languages in different ways.
           You can switch between how many books have been written about them, how many academic papers mention them, 
           or how many people use them. Just click the buttons to change what’s on the Y-axis!
         </p>
       </div>
-      <button class='bargraph-button' onclick="update('bookcount_data')">Book Count</button>
-      <button class='bargraph-button' onclick="update('papercount_data')">Paper Count</button>
-      <button class='bargraph-button' onclick="update('number_of_users_data')">Number of Users</button>
+      <div id="bargraph-button-container">
+        <button class='bargraph-button' onclick="update('bookcount_data')">Book Count</button>
+        <button class='bargraph-button' onclick="update('papercount_data')">Paper Count</button>
+        <button class='bargraph-button' onclick="update('number_of_users_data')">Number of Users</button>
+      </div>
       <div id="title"></div>
       <div id="viz-bargraph-container">
       </div>
@@ -262,7 +264,7 @@
 
     <div class="section" id="viz4">
     <div id="timeline-explanation">
-      <h2>Mapping programming languages and their countries</h2>
+      <h2>Where in the World Did Programming Languages Come From?</h2>
         <p>
           Hover over a country on the map to see how many programming languages were developed there.
           You’ll also get a list of the top 5 languages from that country, along with who created them and when.
@@ -284,9 +286,9 @@
             <input id="speedSlider" type="range" min="0" max="1" step="0.001">
             <span id="speedValue">1×</span>
           </label>
-          <button id="pauseBtn">Play</button>
-          <button id="resetBtn">Reset time</button>
-          <button id="resetSpeedBtn">Reset speed</button>
+            <button id="pauseBtn">Play</button>
+            <button id="resetBtn">Reset time</button>
+            <button id="resetSpeedBtn">Reset speed</button>
         </div>
         <div id="chart">
           <svg id="popularity"></svg>
@@ -321,8 +323,8 @@ new fullpage('#fullpage', {
   licenseKey: 'OPEN-SOURCE-GPLV3', // ✅ 添加此行
   autoScrolling: true,
   navigation: true,
-  anchors: ['intro', 'timeline', 'bargraph', 'stories', 'performance', 'mapping', 'graph', 'ranking'],
-  navigationTooltips: ['Intro', 'Timeline', 'Bargraph', 'Stories', 'Performance', 'Mapping', 'Graph', 'Ranking'],
+  anchors: ['intro', 'timeline', 'Chart', 'stories', 'performance', 'mapping', 'graph', 'ranking'],
+  navigationTooltips: ['Intro', 'Timeline', 'Chart', 'Stories', 'Performance', 'World Map', 'Graph', 'Ranking'],
   showActiveTooltip: true,
   scrollOverflow: false
 });
