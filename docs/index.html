@@ -29,6 +29,7 @@
     <div class="section" id="viz1">
         <h2>Programming Languages Timeline </h2>
 
+
         <div id="viz1-container">
           <svg id="line-overlay"
           width="100%"
@@ -52,6 +53,14 @@
         <h2>Origin stories of programming languages (click on python!)</h2>
         <div id="viz2-container"></div>
           <div class="planet-orbit">
+        
+  
+
+        <h2>Origin stories of programming languages (click on python!)</h2>
+        <div id="viz2-container"></div>
+        <div class="stars"></div>
+          <div class="planet-orbit">
+
             <div class="planet-container" style="--i:0;">
               <div class="planet planet--python" onclick="openDoor('python')">
                 <div class="planet__logo">
@@ -103,6 +112,7 @@
           <div id="story-modal" class="modal hidden">
             <div class="modal-content">
               <span class="close-btn" onclick="closeModal()">×</span>
+
 
               <!-- ✅ Python 内容 -->
               <div id="python-content-py" class="language-content hidden">
@@ -247,9 +257,11 @@
       <div id="viz6-container">
         <img src="img/ranking.png" alt="Mapping Visualization" class="viz6-img" />
       </div>
+
   </div>
 </div>
->>>>>>> c0032f9 (added stories for Java and PHP; pages divided)
+
+
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="js/main.js"></script>
@@ -260,6 +272,7 @@
 <script src="js/viz4.js"></script>
 <script src="js/viz5.js"></script>
 <script src="js/viz6.js"></script>
+<script src="js/vis-bargraph.js"></script>
 
 <!-- v3 JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
@@ -289,5 +302,5 @@ new fullpage('#fullpage', {
 
 
 </body>
-
 </html>
+
