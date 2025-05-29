@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.controls {
+    margin-bottom: 20px;
+}
+.controls label {
+    margin-right: 5px;
+}
+.controls select {
+    margin-right: 20px;
+}
+.charts {
+    display: flex;
+    flex-wrap: wrap;
+}
+.chart {
+    margin: 10px;
+}
+svg {
+    background-color: #f9f9f9;
+    overflow: visible;  /* Ensure axis labels are not cut */
+}

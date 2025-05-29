@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Programming Languages Bar Chart Race</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="controls" style="text-align:center; margin: 10px;">
+    <label>
+      Speed:
+      <input id="speedSlider" type="range" min="0" max="1" step="0.001">
+      <span id="speedValue">1×</span>
+    </label>
+    <button id="pauseBtn">Play</button>
+    <button id="resetBtn">Reset time</button>
+    <button id="resetSpeedBtn">Reset speed</button>
+  </div>
+  <div id="chart">
+    <svg></svg>
+    <div id="date-display"></div>
+  </div>
+  <div id="progress-container">
+    <progress id="time-progress" value="0" max="1"></progress>
+  </div>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
