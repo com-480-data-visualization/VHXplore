@@ -4,25 +4,34 @@ Explore the history and global impact of programming languages through interacti
 
 ## 🔍 About the Project
 
-This project explores the evolution and diversity of programming languages through rich, interactive visualizations:
+## 📘 Project Overview
 
-- 📅 **Timeline**  
-  Trace when programming languages were created and discover who developed them and where.
+As computer science students, we interact with a wide range of programming languages in our daily work. While we often choose languages based on their features or performance, few of us pause to consider their origins—when they were created, who developed them, where they came from, how popular they are today, or even what their names mean.
 
-- 📊 **Bar Graph**  
-  Compare languages by book count, paper count, and user base — switch views with a click.
+In this project, we aim to present a comprehensive and interactive visualization of the most influential programming languages, starting from the 1950s. Our goal is to make this information engaging and accessible, combining historical and technical insights with visual storytelling.
 
-- 🌍 **World Map**  
-  Hover over countries to see how many programming languages were developed there and explore the top 5 with their creators and institutions.
+---
 
-- 🪐 **Planet View**  
-  Discover the origins of programming language names and how they relate to mythology, people, or concepts.
+## 🎯 What Our Visualizations Highlight
 
-- 🚀 **Performance Bar Graph**  
-  Explore and compare the execution performance of different programming languages.
+- **Temporal trends**  
+  When each language was developed and how they evolved over time.
 
-- 🏁 **Popularity Race**  
-  Watch the dynamic race of programming languages as their popularity changes over time.
+- **Popularity metrics**  
+  Including the number of books published, academic papers produced, and estimated user base.
+
+- **Geographic origins**  
+  Showing the top 7 languages from each country on a world map, offering a global perspective on programming language development.
+
+- **Technical relationships**  
+  Exploring performance characteristics and how languages are interconnected.
+
+- **Naming origins**  
+  Revealing the often surprising or humorous stories behind language names.
+
+---
+
+By blending data with design, we hope this project provides both educational value and exploratory enjoyment for anyone interested in the evolution of programming languages.
 
 
 ## 📁 File Structure
