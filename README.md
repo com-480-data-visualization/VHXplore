@@ -136,7 +136,7 @@ Process book is here: [[link]](Process book)
 
 Final website is here: [[link]](https://com-480-data-visualization.github.io/VHXplore/)
 
-### Students
+## Students
 Xinhe Gao &#8195;&#8195;&#8195;&nbsp;402746 <br>
 Hanbo Shim  &#8195;&#8195;&nbsp;&thinsp;403755 <br>
 Valentin Vuillon  &#8195;315300 <br>
