@@ -5,26 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Programming Languages Visualizations</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/styles_stories.css">
+  <!-- v3 CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"
+    }
+  }
+  </script>
+
 </head>
 <body>
-  <header>
-    <h1>Visualizations of Programming Languages</h1>
-  </header>
 
-  <main>
-    <section id="viz1">
+  <div id="fullpage" role="main">
+
+    <div class="section" id="intro">
+      <div id="intro-canvas-container" style="width:100%; height:100%; position:relative;"></div>
+    </div>
+
+    <div class="section" id="viz1">
         <h2>Programming Languages Timeline </h2>
+
+
         <div id="viz1-container">
           <svg id="line-overlay"
           width="100%"
           height="100%"
           style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1;"></svg>
         </div>
-        <!DOCTYPE html>
-        <meta charset="utf-8">
-    </section>
+    </div>
 
-    <section id="viz-bargraph">
+    <div class="section" id="viz-bargraph">
       <h2>Bar graph </h2>
       <button class='bargraph-button' onclick="update('bookcount_data')">Book Count</button>
       <button class='bargraph-button' onclick="update('papercount_data')">Paper Count</button>
@@ -32,11 +46,15 @@
       <div id="title"></div>
       <div id="viz-bargraph-container">
       </div>
-      <!DOCTYPE html>
-      <meta charset="utf-8">
-    </section>
+    </div>
 
-    <section id="viz2">
+    <div class="section" id="viz2">
+      <div id="tsparticles"></div>
+        <h2>Origin stories of programming languages (click on python!)</h2>
+        <div id="viz2-container"></div>
+          <div class="planet-orbit">
+        
+  
 
         <h2>Origin stories of programming languages (click on python!)</h2>
         <div id="viz2-container"></div>
@@ -94,20 +112,118 @@
           <div id="story-modal" class="modal hidden">
             <div class="modal-content">
               <span class="close-btn" onclick="closeModal()">×</span>
-              <img id="python-logo" src="img/python_logo.png" alt="Python Logo" class="centered-logo" />
-              <div> What was the inspiration for the name "python" ? </div>
 
-              <div class="icon-row">
-                <div class="icon-item" onclick="selectSymbol('snake')">
-                  <img src="img/snake.png" alt="Snake" />
-                  <span id="snake-symbol"></span>
+
+              <!-- ✅ Python 内容 -->
+              <div id="python-content-py" class="language-content hidden">
+                <img id="python-logo-py" src="img/python_logo.png" alt="Python Logo" class="centered-logo" />
+                <p class="question-text">Was Python named after the snake?</p>
+                <div class="question-buttons">
+                  <button onclick="answerPythonQuestion(true)">Yes</button>
+                  <button onclick="answerPythonQuestion(false)">No</button>
                 </div>
-                <div class="icon-item" onclick="selectSymbol('comedy')">
-                  <img src="img/monty.png" alt="Monty Python" />
-                  <span id="comedy-symbol"></span>
+                <div id="feedback-python" class="question-feedback hidden"></div>
+                <img id="python-monty-img" src="img/monty_python.jpg" alt="Monty Python" class="monty-img hidden" />
+              </div>
+
+
+              <!-- Java -->
+              <div id="java-content-jv" class="language-content hidden">
+
+                <div class="animation-wrapper-jv">
+                  <div id="icon-animation-jv" class="icon-scene-jv">
+                    <span id="acorn-icon-jv" class="icon-item-jv">🌰</span>
+                    <span id="tm-icon-jv" class="icon-item-jv hidden">™️</span>
+                    <span id="coffee-icon-jv" class="icon-item-jv hidden">☕</span>
+                  </div>
+                </div>
+
+                <div class="question-jv">
+                  <p class="question-text">Is it true that Java used to be called Oak?</p>
+                  <div class="question-buttons">
+                    <button onclick="answerJavaQuestion(true)">Yes</button>
+                    <button onclick="answerJavaQuestion(false)">No</button>
+                  </div>
+                  <div id="feedback-jv" class="question-feedback hidden"></div>
+                </div>
+
+              </div>
+
+              <!-- ✅ PHP 内容 -->
+              <div id="php-content-php" class="language-content hidden">
+                <!-- 动画展示区 -->
+                <div class="animation-wrapper-php">
+                  <div id="php-animation-container">
+                    <span id="php-text" class="php-step-a">
+                      <span class="keep">P</span><span class="fade">e</span><span class="fade">r</span><span class="fade">s</span><span class="fade">o</span><span class="fade">n</span><span class="fade">a</span><span class="fade">l</span>
+                      &nbsp;
+                      <span class="keep">H</span><span class="fade">o</span><span class="fade">m</span><span class="fade">e</span>
+                      &nbsp;
+                      <span class="keep">P</span><span class="fade">a</span><span class="fade">g</span><span class="fade">e</span>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- 问答交互 -->
+                <div class="question-php">
+                  <p class="question-text">Is PHP a recursive acronym?</p>
+                  <div class="question-buttons">
+                    <button onclick="answerPHPQuestion(true)">Yes</button>
+                    <button onclick="answerPHPQuestion(false)">No</button>
+                  </div>
+                  <div id="feedback-php" class="question-feedback hidden"></div>
                 </div>
               </div>
 
+              <!-- C++ 内容 -->
+              <div id="c-content-cpp" class="language-content hidden">
+                <div class="cpp-clock-wrapper">
+                  <div id="cpp-clock-face">
+                    <!-- 字母 A ~ L -->
+                    <div class="clock-letter" style="--i:1;">A</div>
+                    <div class="clock-letter" style="--i:2;">B</div>
+                    <div class="clock-letter" style="--i:3;">C</div>
+                    <div class="clock-letter" style="--i:4;">D</div>
+                    <div class="clock-letter" style="--i:5;">E</div>
+                    <div class="clock-letter" style="--i:6;">F</div>
+                    <div class="clock-letter" style="--i:7;">G</div>
+                    <div class="clock-letter" style="--i:8;">H</div>
+                    <div class="clock-letter" style="--i:9;">I</div>
+                    <div class="clock-letter" style="--i:10;">J</div>
+                    <div class="clock-letter" style="--i:11;">K</div>
+                    <div class="clock-letter" style="--i:12;">L</div>
+
+                    <!-- 钟表指针 -->
+                    <div id="cpp-hand"></div>
+                  </div>
+                </div>
+
+                <!-- 问题 + 按钮 -->
+                <div class="question-cpp">
+                  <p class="question-text">Is B the direct predecessor of C?</p>
+                  <div class="question-buttons">
+                    <button onclick="answerCPPQuestion(true)">Yes</button>
+                    <button onclick="answerCPPQuestion(false)">No</button>
+                  </div>
+                  <div id="feedback-cpp" class="question-feedback hidden"></div>
+                </div>
+              </div>
+
+              <!-- MATLAB 内容 -->
+              <div id="matlab-content-mt" class="language-content hidden">
+                <div class="matlab-question-wrapper">
+                  <img src="img/matt_placeholder.png" alt="Portrait of 'Matt'" class="matt-img" />
+                  <p class="question-text">Is MATLAB named after a guy named Matt?</p>
+                  <div class="question-buttons">
+                    <button onclick="answerMatlabQuestion(true)">Yes</button>
+                    <button onclick="answerMatlabQuestion(false)">No</button>
+                  </div>
+                  <div id="feedback-matlab" class="question-feedback hidden"></div>
+                </div>
+              </div>
+
+
+              <!-- ✅ 通用区域 -->
               <div id="story-text" class="story hidden"></div>
               <button id="toggle-btn" onclick="toggleStory()">Show Story</button>
             </div>
@@ -115,47 +231,75 @@
 
         </div>
 
-    </section>
-
-    <section id="viz3">
+    <div class="section" id="viz3">
         <h2>Performance comparison of programming languages</h2>
         <div id="viz3-container">
           <img src="img/performance.jpg" alt="Performance Visualization" class="viz3-img" />
         </div>
-    </section>
+    </div>
 
-    <section id="viz4">
+    <div class="section" id="viz4">
         <h2>Mapping programming languages and their countries</h2>
-        <div id="viz-map-container">
-          <svg id="world-map" width="1000" height="600"></svg>
-          <div class="tooltip" id="map-tooltip" style="position:absolute; display:none; border:1px solid #ccc; padding:5px;"></div>
+        <div id="viz4-container">
+          <img src="img/mapping.jpg" alt="Mapping Visualization" class="viz4-img" />
         </div>
-    </section>
+    </div>
 
-    <section id="viz5">
+    <div class="section" id="viz5">
         <h2>Graph of connections between programming languages</h2>
         <div id="viz5-container">
           <img src="img/graph.png" alt="Mapping Visualization" class="viz5-img" />
         </div>
-    </section>
+    </div>
 
-    <section id="viz6">
+    <div class="section" id="viz6">
       <h2>Popularity of programming languages over time</h2>
       <div id="viz6-container">
         <img src="img/ranking.png" alt="Mapping Visualization" class="viz6-img" />
       </div>
-  </section>
-</main>
+
+  </div>
+</div>
+
+
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/viz1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 <script src="js/viz2.js"></script>
 <script src="js/viz3.js"></script>
 <script src="js/viz4.js"></script>
 <script src="js/viz5.js"></script>
 <script src="js/viz6.js"></script>
 <script src="js/vis-bargraph.js"></script>
+
+<!-- v3 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+
+<script>
+new fullpage('#fullpage', {
+  licenseKey: 'OPEN-SOURCE-GPLV3', // ✅ 添加此行
+  autoScrolling: true,
+  navigation: true,
+  anchors: ['intro', 'timeline', 'bargraph', 'stories', 'performance', 'mapping', 'graph', 'ranking'],
+  navigationTooltips: ['Intro', 'Timeline', 'Bargraph', 'Stories', 'Performance', 'Mapping', 'Graph', 'Ranking'],
+  showActiveTooltip: true,
+  scrollOverflow: false
+});
+</script>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module" src="js/intro.js"></script>
+
 
 </body>
 </html>

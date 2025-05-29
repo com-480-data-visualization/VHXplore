@@ -1,0 +1,611 @@
+#viz2 {
+  position: relative;
+  height: 100vh; /* ✅ 这句是关键：让它有可视高度 */
+  overflow: hidden;
+}
+
+#viz2-container {
+  position: relative;
+  z-index: 1; /* ⬅️ 提升轨道容器，但仍让背景 canvas 在后面可见 */
+  background: transparent; /* 🧼 确保它不会遮挡 canvas */
+}
+
+
+@keyframes orbit-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counter-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.planet-orbit {
+  position: relative;
+  width: 500px;
+  height: 800px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  z-index: 1;
+  animation: orbit-rotation 30s linear infinite;
+  transform: rotateX(20deg);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.8s ease;
+}
+
+.planet-orbit.focused {
+  transform: rotateX(20deg) scale(1.2) translateY(-80px);
+}
+
+.planet-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  perspective: 1000px;}
+
+
+
+.planet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+  transform-origin: center;
+  transition: transform 0.1s linear, opacity 0.1s linear;
+  will-change: transform, opacity;
+  animation: counter-rotate 30s linear infinite;
+}
+
+
+.planet__logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(50, 50, 50, 0.3));
+  box-shadow:
+    inset -5px -5px 12px rgba(255,255,255,0.2),
+    inset 5px 5px 18px rgba(0,0,0,0.3),
+    0 0 15px rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  animation: spin 40s linear infinite;
+  backdrop-filter: blur(2px);
+}
+
+.planet__logo::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,0,0,0.2), transparent 70%);
+  pointer-events: none;
+  z-index: 2;  /* 在星球上方 */
+  mix-blend-mode: overlay;
+  filter: blur(8px);
+}
+
+
+.planet__logo::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), rgba(100, 200, 255, 0.15), transparent 80%);
+  filter: blur(12px) brightness(1.2);
+  opacity: 0.8;
+  z-index: -1;
+  transition: all 0.6s ease;
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.planet__logo-img {
+  width: 70%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Python - 深绿色 */
+.planet--python .planet__logo {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), rgba(32, 85, 41, 0.6), rgba(10, 30, 20, 0.7));
+  box-shadow: 0 0 15px rgba(40,100,60,0.5);
+}
+
+/* Java - 咖啡色 */
+.planet--java .planet__logo {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(110, 70, 40, 0.6), rgba(40, 20, 10, 0.7));
+  box-shadow: 0 0 15px rgba(120,70,40,0.4);
+}
+
+/* MATLAB - 橘红色 */
+.planet--matlab .planet__logo {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), rgba(240, 110, 30, 0.6), rgba(100, 40, 0, 0.7));
+  box-shadow: 0 0 15px rgba(255,120,60,0.4);
+}
+
+/* C++ - 蓝色 */
+.planet--c .planet__logo {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), rgba(80,130,255,0.6), rgba(0,20,60,0.7));
+  box-shadow: 0 0 15px rgba(80,130,255,0.4);
+}
+
+/* PHP - 深灰色 */
+.planet--php .planet__logo {
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(80,80,80,0.5), rgba(30,30,30,0.7));
+  box-shadow: 0 0 15px rgba(100,100,100,0.3);
+}
+
+
+
+.planet__label {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.planet--focused {
+  transform: scale(2.5) translateZ(80px) !important;
+  z-index: 100;
+  transition: transform 0.6s ease, z-index 0.6s;
+}
+
+.planet--dimmed {
+  opacity: 0.2;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#tsparticles {
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  color: { value: "#ff0000" },
+}
+
+
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #222;
+  color: white;
+  padding: 2rem;
+  max-width: 900px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ff6666;
+  transform: scale(1.2);
+  transition: 0.2s ease;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.centered-logo {
+  width: 180px;
+  margin: 1rem auto;
+  display: block;
+}
+
+.icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0 1rem;
+}
+
+.icon-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.icon-item img {
+  width: 100px;
+  border-radius: 10px;
+  border: 2px solid #555;
+  transition: transform 0.3s;
+}
+
+.icon-item img:hover {
+  transform: scale(1.1);
+}
+
+.icon-item span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  color: white;
+  pointer-events: none;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(-48%, -50%) rotate(5deg);
+  }
+
+  50% {
+    transform: translate(-52%, -50%) rotate(-5deg);
+  }
+
+  75% {
+    transform: translate(-48%, -50%) rotate(3deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+.story {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.icon-scene-jv {
+  position: relative;
+  width: 300px;   /* 原来是 150px */
+  height: 150px;
+  overflow: visible;  /* 改为 visible 允许外部动画进入视野 */
+}
+
+.icon-item-jv {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  transition: all 0.6s ease;
+}
+
+.cover-tm-jv {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  font-size: 20px;
+  opacity: 1;
+  z-index: 2;
+  animation: fade-out 1s ease 1s forwards;
+}
+
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.roll-away-jv {
+  transform: rotate(360deg) translateX(200px) scale(0);
+  opacity: 0;
+}
+
+.slide-in-coffee-jv {
+  position: absolute;
+  top: 70%;
+  left: 0%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.slide-in-coffee-jv.animate {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+
+.animation-wrapper-jv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* 可以调节高度 */
+}
+
+.question-jv {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.question-buttons button {
+  margin: 0 1rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #ffd43b;
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.question-buttons button:hover {
+  background-color: #ffcc00;
+}
+
+.question-feedback {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.question-feedback.correct {
+  color: #00ff99;
+}
+
+.question-feedback.incorrect {
+  color: #ff6666;
+}
+
+
+
+button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#toggle-btn {
+  background-color: #ffd43b;
+  color: #222;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+#story-text {
+  margin-top: 1rem;
+  text-align: left;
+  transition: all 1s ease;
+  opacity: 1;
+}
+
+#acorn-icon-jv {
+  position: relative;
+}
+
+#tm-icon-jv.cover-tm-jv {
+  position: absolute;
+  top: 90px;
+  right: 70px;
+  transform: translate(50%, -50%);
+  font-size: 40px;
+  opacity: 1;
+  z-index: 2;
+  animation: fade-out 1s ease 1s forwards;
+}
+
+#coffee-icon-jv {
+  z-index: 3;
+}
+
+
+.animation-wrapper-php {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+#php-animation-container {
+  width: 500px;     /* 你可以根据最长字符串来微调 */
+  height: 2.5em;     /* 保证高度也稳定 */
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  overflow: hidden;  /* 超出的部分裁剪（可选） */
+}
+
+
+#php-text {
+  transition: opacity 1s ease, transform 1s ease;
+  white-space: nowrap;
+}
+
+#php-text .fade {
+  opacity: 1;
+}
+
+#php-suffix {
+  display: inline-block;
+  margin-left: 0.3rem;
+  transition: opacity 1s ease;
+}
+
+.php-step-b {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.php-step-c {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.php-step-d {
+  opacity: 0.7;
+  transform: scale(0.9);
+}
+
+.fade-part {
+  display: inline-block;
+  transition: opacity 0.8s ease;
+}
+
+.cpp-clock-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  margin-bottom: 1rem;
+}
+
+#cpp-clock-face {
+  width: 200px;
+  height: 200px;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: relative;
+}
+
+.clock-letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:
+    rotate(calc(30deg * var(--i)))
+    translate(85px)
+    rotate(calc(-30deg * var(--i)));
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+}
+
+#cpp-hand {
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  background-color: #ffd43b;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) rotate(30deg); /* 起点在中心，向上伸展 */
+  transition: transform 1s ease;
+}
+
+.matlab-question-wrapper {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.matt-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ffd43b;
+  margin-bottom: 1rem;
+}
+
+.question-buttons button {
+  margin: 0 1rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #ffd43b;
+  color: #222;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.question-buttons button:hover {
+  background-color: #ffcc00;
+}
+
+.monty-img {
+  width: 200px;
+  margin-top: 1rem;
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.hidden {
+  display: none;
+}
