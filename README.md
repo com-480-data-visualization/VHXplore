@@ -6,6 +6,60 @@ Hanbo Shim  &#8195;&#8195;&nbsp;&thinsp;403755 <br>
 Valentin Vuillon  &#8195;315300 <br>
 
 
+# Programming Languages Visualized
+
+Explore the history and global impact of programming languages through interactive data visualizations using D3.js.
+
+## 🔍 About the Project
+
+This project visualizes:
+- A **timeline** of programming language creation.
+- A **bar graph** comparing book count, paper count, and user base.
+- A **world map** showing the countries where languages were developed.
+
+Each visualization is interactive — hover over elements to get detailed tooltips with language names, creators, institutions, and years.
+
+## 📁 File Structure
+```
+.
+├── css
+│   ├── style.css
+│   ├── styles_perf.css
+│   ├── styles_pop.css
+│   └── styles_stories.css
+├── data
+│   ├── alldata_processed.csv
+│   ├── pldb.csv
+│   └── pop_data.csv
+├── fonts
+│   └── helvetiker_regular.typeface.json
+├── img
+│   ├── background.png
+│   ├── c++_logo.png
+│   ├── graph.png
+│   ├── java_logo.png
+│   ├── mapping.jpg
+│   ├── matlab_logo.png
+│   ├── monty.png
+│   ├── performance.jpg
+│   ├── php_logo.png
+│   ├── python_logo.png
+│   ├── ranking.png
+│   └── snake.png
+├── index.html
+└── js
+    ├── intro.js
+    ├── main.js
+    ├── vis-bargraph.js
+    ├── viz1.js
+    ├── viz2.js
+    ├── viz3.js
+    ├── viz4.js
+    ├── viz5.js
+    └── viz6.js
+```
+
+
 ### Milestones
 
 <b>Milestone 1</b>
