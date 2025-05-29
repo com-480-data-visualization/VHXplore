@@ -50,10 +50,10 @@
       </div>
     </div>
 
-    <div class="section" id="viz2">
+    <div class="section starfield-theme" id="viz2">
       <div id="tsparticles"></div>
         <h2>Origin stories of programming languages (click on python!)</h2>
-        <div id="viz2-container"></div>
+        <div id="viz2-container">
           <div class="planet-orbit">
             <div class="planet-container" style="--i:0;">
               <div class="planet planet--python" onclick="openDoor('python')">
@@ -74,7 +74,7 @@
             </div>
 
             <div class="planet-container" style="--i:2;">
-              <div class="planet planet--c" onclick="openDoor('c')">
+              <div class="planet planet--cpp" onclick="openDoor('cpp')">
                 <div class="planet__logo">
                   <img class="planet__logo-img" src="img/c++_logo.png" alt="C++ Logo" />
                 </div>
@@ -108,7 +108,7 @@
 
               <!-- ✅ Python 内容 -->
               <div id="python-content-py" class="language-content hidden">
-                <img id="python-logo-py" src="img/python_logo.png" alt="Python Logo" class="centered-logo" />
+                <img id="python-logo-py" src="img/python_snake.png" alt="Python Snake Photo" class="centered-logo" />
                 <p class="question-text">Was Python named after the snake?</p>
                 <div class="question-buttons">
                   <button onclick="answerPythonQuestion(true)">Yes</button>
@@ -124,9 +124,14 @@
 
                 <div class="animation-wrapper-jv">
                   <div id="icon-animation-jv" class="icon-scene-jv">
-                    <span id="acorn-icon-jv" class="icon-item-jv">🌰</span>
+                    <span id="oak-img-jv" class="icon-item-jv">
+                      <img src="img/oak.png" alt="Oak Tree" class="jv-img" />
+                    </span>
                     <span id="tm-icon-jv" class="icon-item-jv hidden">™️</span>
-                    <span id="coffee-icon-jv" class="icon-item-jv hidden">☕</span>
+                    <span id="coffee-img-jv" class="icon-item-jv hidden">
+                      <img src="img/coffee.png" alt="Coffee Cup" class="jv-img" />
+                    </span>
+
                   </div>
                 </div>
 
@@ -168,27 +173,16 @@
               </div>
 
               <!-- C++ 内容 -->
-              <div id="c-content-cpp" class="language-content hidden">
+              <div id="cpp-content-cpp" class="language-content hidden">
                 <div class="cpp-clock-wrapper">
-                  <div id="cpp-clock-face">
-                    <!-- 字母 A ~ L -->
-                    <div class="clock-letter" style="--i:1;">A</div>
-                    <div class="clock-letter" style="--i:2;">B</div>
-                    <div class="clock-letter" style="--i:3;">C</div>
-                    <div class="clock-letter" style="--i:4;">D</div>
-                    <div class="clock-letter" style="--i:5;">E</div>
-                    <div class="clock-letter" style="--i:6;">F</div>
-                    <div class="clock-letter" style="--i:7;">G</div>
-                    <div class="clock-letter" style="--i:8;">H</div>
-                    <div class="clock-letter" style="--i:9;">I</div>
-                    <div class="clock-letter" style="--i:10;">J</div>
-                    <div class="clock-letter" style="--i:11;">K</div>
-                    <div class="clock-letter" style="--i:12;">L</div>
-
-                    <!-- 钟表指针 -->
-                    <div id="cpp-hand"></div>
+                  <div class="cpp-beautiful-bc">
+                    <span class="letter-b">B</span>
+                    <span class="arrow">⇝</span>
+                    <span class="letter-c">C</span>
                   </div>
                 </div>
+
+
 
                 <!-- 问题 + 按钮 -->
                 <div class="question-cpp">
@@ -204,7 +198,7 @@
               <!-- MATLAB 内容 -->
               <div id="matlab-content-mt" class="language-content hidden">
                 <div class="matlab-question-wrapper">
-                  <img src="img/matt_placeholder.png" alt="Portrait of 'Matt'" class="matt-img" />
+                  <img src="img/matt.png" alt="Portrait of 'Matt'" class="matt-img" />
                   <p class="question-text">Is MATLAB named after a guy named Matt?</p>
                   <div class="question-buttons">
                     <button onclick="answerMatlabQuestion(true)">Yes</button>
@@ -217,11 +211,11 @@
 
               <!-- ✅ 通用区域 -->
               <div id="story-text" class="story hidden"></div>
-              <button id="toggle-btn" onclick="toggleStory()">Show Story</button>
+              <button id="toggle-btn">Show Story</button>
             </div>
           </div>
-
         </div>
+    </div>
 
     <div class="section" id="viz3">
       <div id="tsparticles"></div>
@@ -230,13 +224,13 @@
           <div class="controls">
             <label for="lang-select">Languages:</label>
             <select id="lang-select" multiple></select>
-    
+
             <label for="name-select">Problem:</label>
             <select id="name-select"></select>
-    
+
             <label for="n-select">Problem Size:</label>
             <select id="n-select"></select>
-    
+
             <label for="sort-select">Sort By:</label>
             <select id="sort-select"></select>
         </div>
@@ -323,4 +317,3 @@ new fullpage('#fullpage', {
 
 </body>
 </html>
-
