@@ -106,7 +106,6 @@
             <div class="modal-content">
               <span class="close-btn" onclick="closeModal()">×</span>
 
-              <!-- ✅ Python 内容 -->
               <div id="python-content-py" class="language-content hidden">
                 <img id="python-logo-py" src="img/python_snake.png" alt="Python Snake Photo" class="centered-logo" />
                 <p class="question-text">Was Python named after the snake?</p>
@@ -119,7 +118,6 @@
               </div>
 
 
-              <!-- Java -->
               <div id="java-content-jv" class="language-content hidden">
 
                 <div class="animation-wrapper-jv">
@@ -146,9 +144,7 @@
 
               </div>
 
-              <!-- ✅ PHP 内容 -->
               <div id="php-content-php" class="language-content hidden">
-                <!-- 动画展示区 -->
                 <div class="animation-wrapper-php">
                   <div id="php-animation-container">
                     <span id="php-text" class="php-step-a">
@@ -161,7 +157,6 @@
                   </div>
                 </div>
 
-                <!-- 问答交互 -->
                 <div class="question-php">
                   <p class="question-text">Is PHP a recursive acronym?</p>
                   <div class="question-buttons">
@@ -172,7 +167,6 @@
                 </div>
               </div>
 
-              <!-- C++ 内容 -->
               <div id="cpp-content-cpp" class="language-content hidden">
                 <div class="cpp-clock-wrapper">
                   <div class="cpp-beautiful-bc">
@@ -184,7 +178,6 @@
 
 
 
-                <!-- 问题 + 按钮 -->
                 <div class="question-cpp">
                   <p class="question-text">Is B the direct predecessor of C?</p>
                   <div class="question-buttons">
@@ -195,7 +188,6 @@
                 </div>
               </div>
 
-              <!-- MATLAB 内容 -->
               <div id="matlab-content-mt" class="language-content hidden">
                 <div class="matlab-question-wrapper">
                   <img src="img/matt.png" alt="Portrait of 'Matt'" class="matt-img" />
@@ -209,7 +201,6 @@
               </div>
 
 
-              <!-- ✅ 通用区域 -->
               <div id="story-text" class="story hidden"></div>
               <button id="toggle-btn">Show Story</button>
             </div>
@@ -293,7 +284,7 @@
 
 <script>
 new fullpage('#fullpage', {
-  licenseKey: 'OPEN-SOURCE-GPLV3', // ✅ 添加此行
+  licenseKey: 'OPEN-SOURCE-GPLV3', 
   autoScrolling: true,
   navigation: true,
   anchors: ['intro', 'timeline', 'bargraph', 'stories', 'performance', 'mapping', 'graph', 'ranking'],

@@ -325,12 +325,10 @@ function answerCPPQuestion(isYes) {
 function openMatlabStory() {
   document.getElementById("matlab-content-mt").classList.remove("hidden");
 
-  // 重置反馈
   const feedback = document.getElementById("feedback-matlab");
   feedback.className = "question-feedback hidden";
   feedback.innerText = "";
 
-  // 重置头像动画
   const matt = document.querySelector(".matt-img");
   matt.classList.remove("shake");
 

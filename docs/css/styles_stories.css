@@ -116,7 +116,7 @@
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0,0,0,0.2), transparent 70%);
   pointer-events: none;
-  z-index: 2;  /* 在星球上方 */
+  z-index: 2; 
   mix-blend-mode: overlay;
   filter: blur(8px);
 }
@@ -154,31 +154,26 @@
   object-fit: contain;
 }
 
-/* Python - 深绿色 */
 .planet--python .planet__logo {
   background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(32, 85, 41, 0.5), rgba(10, 30, 20, 0.6));
   box-shadow: 0 0 15px rgba(40,100,60,0.5);
 }
 
-/* Java - 咖啡色 */
 .planet--java .planet__logo {
   background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.20), rgba(110, 70, 40, 0.5), rgba(40, 20, 10, 0.6));
   box-shadow: 0 0 15px rgba(120,70,40,0.4);
 }
 
-/* MATLAB - 橘红色 */
 .planet--matlab .planet__logo {
   background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(240, 110, 30, 0.5), rgba(100, 40, 0, 0.6));
   box-shadow: 0 0 15px rgba(255,120,60,0.4);
 }
 
-/* C++ - 蓝色 */
 .planet--c .planet__logo {
   background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(80,130,255,0.5), rgba(0,20,60,0.6));
   box-shadow: 0 0 15px rgba(80,130,255,0.4);
 }
 
-/* PHP - 深灰色 */
 .planet--php .planet__logo {
   background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(80,80,80,0.4), rgba(30,30,30,0.6));
   box-shadow: 0 0 15px rgba(100,100,100,0.3);
@@ -351,9 +346,9 @@
 
 .icon-scene-jv {
   position: relative;
-  width: 300px;   /* 原来是 150px */
+  width: 300px;   
   height: 150px;
-  overflow: visible;  /* 改为 visible 允许外部动画进入视野 */
+  overflow: visible; 
 }
 
 .icon-item-jv {
@@ -410,7 +405,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px; /* 可以调节高度 */
+  height: 200px; 
 }
 
 .question-jv {
