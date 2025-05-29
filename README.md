@@ -2,7 +2,9 @@
 
 Explore the history and global impact of programming languages through interactive data visualizations using D3.js.
 <div align="center">
+
 [[link]](https://com-480-data-visualization.github.io/VHXplore/)
+
 </div>
 ## 📘 Project Overview
 
