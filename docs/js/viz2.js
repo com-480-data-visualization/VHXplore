@@ -202,7 +202,7 @@ function answerPHPQuestion(isYes) {
   } else {
     // ❌ 错误答案
     feedback.className = "question-feedback incorrect";
-    feedback.innerText = "Oops! PHP actually *is* a recursive acronym.";
+    feedback.innerText = "Oops! PHP actually is a recursive acronym.";
 
     phpText.classList.remove("shake");
     void phpText.offsetWidth;

@@ -70,7 +70,7 @@ h2 {
 .details {
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -170%); /* Center horizontally & vertically */ 
+  transform: translate(-50%, 300%); /* Center horizontally & vertically */ 
   background-color: #252526;
   color: #d4d4d4;
   padding: 1rem;
@@ -370,3 +370,4 @@ button {
   overflow: hidden;
   fill: 	#DCDCAA;
 }
+
