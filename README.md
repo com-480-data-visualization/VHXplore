@@ -2,8 +2,6 @@
 
 Explore the history and global impact of programming languages through interactive data visualizations using D3.js.
 
-## 🔍 About the Project
-
 ## 📘 Project Overview
 
 As computer science students, we interact with a wide range of programming languages in our daily work. While we often choose languages based on their features or performance, few of us pause to consider their origins—when they were created, who developed them, where they came from, how popular they are today, or even what their names mean.
@@ -75,9 +73,9 @@ By blending data with design, we hope this project provides both educational val
 ```
 
 
-### Milestones
+## ✅ Milestones
 
-<b>Milestone 1</b>
+### Milestone 1
 
 Here you can find our milestone 1: [[link]](/Milestones/milestone1/) 
 
@@ -86,11 +84,13 @@ It contains:
 - A jupyter notebook containing our preliminary exploratory data analysis [[link]](/Milestones/milestone1/EDA.ipynb) 
 - The used datasets for the EDA
 
-<b>Milestone 2</b>
+### Milestone 2
 
 Our milestone 2 report: [[link]](/Milestones/milestone2/milestone2.pdf) 
 
 Link to the first version of the website: [[link]](https://com-480-data-visualization.github.io/VHXplore/) 
+
+
 
 ### Students
 Xinhe Gao &#8195;&#8195;&#8195;&nbsp;402746 <br>
