@@ -6,12 +6,23 @@ Explore the history and global impact of programming languages through interacti
 
 This project explores the evolution and diversity of programming languages through rich, interactive visualizations:
 
-- 📅 Timeline – Trace when programming languages were created and discover who developed them and where.
-- 📊 Bar Graph – Compare languages by book count, paper count, and user base — switch views with a click.
-- 🌍 World Map – Hover over countries to see how many programming languages were developed there and explore the top 5 with their creators and institutions.
-- 🪐 Planet View – Discover the origins of programming language names and how they relate to mythology, people, or concepts.
-- 🏎️ Performance Bar Graph – Explore and compare the execution performance of different programming languages.
-- 🏁 Popularity Race – Watch the dynamic race of programming languages as their popularity changes over time.
+- 📅 **Timeline**  
+  Trace when programming languages were created and discover who developed them and where.
+
+- 📊 **Bar Graph**  
+  Compare languages by book count, paper count, and user base — switch views with a click.
+
+- 🌍 **World Map**  
+  Hover over countries to see how many programming languages were developed there and explore the top 5 with their creators and institutions.
+
+- 🪐 **Planet View**  
+  Discover the origins of programming language names and how they relate to mythology, people, or concepts.
+
+- 🚀 **Performance Bar Graph**  
+  Explore and compare the execution performance of different programming languages.
+
+- 🏁 **Popularity Race**  
+  Watch the dynamic race of programming languages as their popularity changes over time.
 
 
 ## 📁 File Structure
