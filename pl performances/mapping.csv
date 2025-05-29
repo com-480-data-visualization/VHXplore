@@ -1,0 +1,39 @@
+old_name,new_name
+chapel,Chapel
+julia,Erlang
+Julia,Julia
+lua,Lua
+micropython,MicroPython
+perl,Perl
+python3,Python 3
+swift,Swift
+ruby,Ruby
+rust,Rust
+php,PHP
+go,Go
+clang,C (clang)
+csharpaot,C# (csharpaot)
+csharpcore,C# (csharpcore)
+dartexe,Dart (dartexe)
+dartjit,Dart (dartjit)
+fpascal,Pascal (fpascal)
+fsharpcore,F# (fsharpcore)
+gcc,C (gcc)
+ghc,Haskell (ghc)
+gnat,Ada (gnat)
+gpp,C++ (gpp)
+graalvmaot,Java (graalvmaot)
+icx,C++ (icx)
+ifc,Fortran (ifc)
+ifx,Fortran (ifx)
+java,Java
+javavm,Java (javavm)
+javaxint,Java (javaxint)
+mri,Ruby (mri)
+node,JavaScript (node)
+ocaml,OCaml
+pharo,Smalltalk (Pharo)
+raclet,Racket
+sbcl,Lisp (sbcl)
+toit,Toit
+vw,V
