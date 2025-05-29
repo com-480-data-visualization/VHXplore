@@ -1,7 +1,0 @@
-code généré avec chatgpt  mini high
-
-https://chatgpt.com/c/6834b1df-eaf0-800a-931c-a20c8083a40b
-
-Amélioraton du code 18. 
-
--initialement la visualisation est en mode pause.
