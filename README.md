@@ -90,7 +90,13 @@ Our milestone 2 report: [[link]](/Milestones/milestone2/milestone2.pdf)
 
 Link to the first version of the website: [[link]](https://com-480-data-visualization.github.io/VHXplore/) 
 
+### Milestone 3
 
+Screencast is here: [[link]](screencast)
+
+Process book is here: [[link]](Process book)
+
+Final website is here: [[link]](https://com-480-data-visualization.github.io/VHXplore/)
 
 ### Students
 Xinhe Gao &#8195;&#8195;&#8195;&nbsp;402746 <br>
