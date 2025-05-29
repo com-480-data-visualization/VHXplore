@@ -55,7 +55,7 @@ function init() {
 
 
     const text = new THREE.Mesh(geometry, material);
-    text.position.z = 8;
+    text.position.z = -150;
     textGroup.add(text);
 
     // 获取文字 shapes 中的 hole（字母中的洞，比如 "o", "a"）

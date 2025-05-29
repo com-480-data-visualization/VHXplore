@@ -10,9 +10,26 @@ let selected = { snake: false, comedy: false };
 let storyShown = {};
 
 function openDoor(language) {
+
+  const allPlanets = document.querySelectorAll(".planet");
+  allPlanets.forEach(p => {
+    console.log("当前星球类名：", p.className);
+    if (p.classList.contains(`planet--${language}`)) {
+      console.log("✅ 命中目标星球！", language);
+      p.classList.add("planet--focused");
+    } else {
+      p.classList.add("planet--dimmed");
+    }
+  });
+
+  document.querySelector(".planet-orbit").classList.add("focused");
+
   const modal = document.getElementById("story-modal");
-  modal.classList.remove("hidden");
-  modal.scrollTo(0, 0);  // 🔸 自动滚到顶部
+  setTimeout(() => {
+    modal.classList.remove("hidden");
+    modal.scrollTo(0, 0);
+  }, 800);  // 延迟 600ms，让星球动画先完成
+
 
   document.querySelectorAll(".language-content").forEach(el => el.classList.add("hidden"));
 
@@ -374,12 +391,16 @@ function answerMatlabQuestion(isYes) {
 
 function closeModal() {
   document.getElementById("story-modal").classList.add("hidden");
+  document.querySelectorAll(".planet").forEach(p => {
+    p.classList.remove("planet--focused", "planet--dimmed");
+  });
+  document.querySelector(".planet-orbit").classList.remove("focused");
   if (phpAnimationInterval) {
-  clearInterval(phpAnimationInterval);
-  phpAnimationInterval = null;
+    clearInterval(phpAnimationInterval);
+    phpAnimationInterval = null;
+  }
 }
 
-}
 
 function toggleStory(language) {
   storyShown[language] = !storyShown[language];
@@ -407,7 +428,7 @@ window.addEventListener("load", () => {
     },
     particles: {
       number: {
-        value: 700,
+        value: 300,
         density: {
           enable: true,
           area: 800
