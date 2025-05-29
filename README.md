@@ -92,9 +92,9 @@ This project is built using HTML, CSS, and JavaScript (with D3.js) and runs enti
 2. **Open the HTML file in your browser**
 
     Simply double-click the main HTML file (e.g., index.html) or right-click and choose "Open with" → your browser of choice.
-    ---
+    
     💡 If you see issues loading data (like from .csv or .json files), it might be due to browser security policies.
-    ---
+    
 3. **(Optional) Run with a local server**
     
     To avoid any browser restrictions when loading local files, run a lightweight local server:
