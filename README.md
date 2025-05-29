@@ -77,6 +77,39 @@ By blending data with design, we hope this project provides both educational val
     └── viz6.js
 ```
 
+## 🧪 How to Run This Project
+
+This project is built using HTML, CSS, and JavaScript (with D3.js) and runs entirely in the browser. No backend or build tools are required.
+
+### 🚀 Steps to Run Locally
+
+1. **Clone the repository**  
+
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   ```
+2. **Open the HTML file in your browser**
+
+    Simply double-click the main HTML file (e.g., index.html) or right-click and choose "Open with" → your browser of choice.
+    ---
+    💡 If you see issues loading data (like from .csv or .json files), it might be due to browser security policies.
+    ---
+3. **(Optional) Run with a local server**
+    
+    To avoid any browser restrictions when loading local files, run a lightweight local server:
+
+    - Using Python 3:
+
+    ```bash
+    python3 -m http.server
+    ```
+    Then open http://localhost:8000 in your browser.
+
+    - Using VSCode Live Server:
+
+    Install the Live Server extension, right-click the HTML file, and select "Open with Live Server".
+
 
 ## ✅ Milestones
 
