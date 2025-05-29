@@ -6,6 +6,7 @@
   <title>Programming Languages Visualizations</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/styles_stories.css">
+  <link rel="stylesheet" href="css/styles_perf.css">
   <!-- v3 CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
   <script type="importmap">
@@ -222,9 +223,27 @@
         </div>
 
     <div class="section" id="viz3">
+      <div id="tsparticles"></div>
         <h2>Performance comparison of programming languages</h2>
         <div id="viz3-container">
-          <img src="img/performance.jpg" alt="Performance Visualization" class="viz3-img" />
+          <div class="controls">
+            <label for="lang-select">Languages:</label>
+            <select id="lang-select" multiple></select>
+    
+            <label for="name-select">Problem:</label>
+            <select id="name-select"></select>
+    
+            <label for="n-select">Problem Size:</label>
+            <select id="n-select"></select>
+    
+            <label for="sort-select">Sort By:</label>
+            <select id="sort-select"></select>
+        </div>
+        <div class="charts">
+            <div id="chart-size" class="chart"></div>
+            <div id="chart-cpu" class="chart"></div>
+            <div id="chart-mem" class="chart"></div>
+        </div>
         </div>
     </div>
 
@@ -235,14 +254,7 @@
         <div class="tooltip" id="map-tooltip" style="position:absolute; display:none; border:1px solid #ccc; padding:5px;"></div>
       </div>
     </div>
-
-    <div class="section" id="viz5">
-        <h2>Graph of connections between programming languages</h2>
-        <div id="viz5-container">
-          <img src="img/graph.png" alt="Mapping Visualization" class="viz5-img" />
-        </div>
-    </div>
-
+    
     <div class="section" id="viz6">
       <h2>Popularity of programming languages over time</h2>
       <div id="viz6-container">

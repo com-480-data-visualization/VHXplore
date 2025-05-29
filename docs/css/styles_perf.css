@@ -1,0 +1,20 @@
+.controls {
+    margin-bottom: 20px;
+}
+.controls label {
+    margin-right: 5px;
+}
+.controls select {
+    margin-right: 20px;
+}
+.charts {
+    display: flex;
+    flex-wrap: wrap;
+}
+.chart {
+    margin: 10px;
+}
+#svg_perf {
+    background-color: #1e1e1e;
+    overflow: visible;  /* Ensure axis labels are not cut */
+}
