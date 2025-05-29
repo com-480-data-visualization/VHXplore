@@ -1,7 +1,9 @@
 # Programming languages explorer
 
 Explore the history and global impact of programming languages through interactive data visualizations using D3.js.
-
+<div align="center">
+[[link]](https://com-480-data-visualization.github.io/VHXplore/)
+</div>
 ## 📘 Project Overview
 
 As computer science students, we interact with a wide range of programming languages in our daily work. While we often choose languages based on their features or performance, few of us pause to consider their origins—when they were created, who developed them, where they came from, how popular they are today, or even what their names mean.
