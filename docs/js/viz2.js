@@ -21,7 +21,7 @@ function openDoor(language) {
       openPythonStory();
       break;
     case 'java':
-      openJavaStoryJv();
+      openJavaStory();
       break;
     case 'c':
       openCPPStory();
@@ -420,7 +420,7 @@ window.addEventListener("load", () => {
         type: "circle"
       },
       opacity: {
-        value: 0.6,
+        value: 0.9,
         random: true,
         anim: {
           enable: true,
@@ -474,4 +474,19 @@ window.addEventListener("load", () => {
     },
     detectRetina: true
   });
+  const planetContainers = document.querySelectorAll(".planet-container");
+  const a = 220;
+  const b = 140;
+
+  planetContainers.forEach((container, index) => {
+    const angle = (2 * Math.PI / planetContainers.length) * index;
+    const x = a * Math.cos(angle);
+    const y = b * Math.sin(angle);
+    const z = 60 * Math.sin(angle); // 注意 z 值可以比 y 更大一点增强视觉
+
+    const scale = 1 + z / 300; // 根据 z 轴深度计算缩放值，z 越大（越靠近）越大
+    container.style.transform = `translate3d(${x}px, ${y}px, ${z}px) scale(${scale})`;
+  });
+
+
 });

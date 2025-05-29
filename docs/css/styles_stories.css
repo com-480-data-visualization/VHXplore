@@ -39,14 +39,19 @@
   margin-top: 3rem;
   z-index: 1;
   animation: orbit-rotation 30s linear infinite;
+  transform: rotateX(20deg);
+  transform-style: preserve-3d;
+  perspective: 1000px; /* 可选，加一点深度感 */
 }
+
 
 .planet-container {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: rotate(calc(72deg * var(--i))) translate(200px);
-}
+  transform-style: preserve-3d;
+  perspective: 1000px;}
+
 
 
 .planet {
@@ -83,19 +88,37 @@
   backdrop-filter: blur(2px);
 }
 
+.planet__logo::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,0,0,0.2), transparent 70%);
+  pointer-events: none;
+  z-index: 2;  /* 在星球上方 */
+  mix-blend-mode: overlay;
+  filter: blur(8px);
+}
+
 
 .planet__logo::after {
   content: "";
   position: absolute;
-  top: -20%;
-  left: -20%;
-  width: 140%;
-  height: 140%;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(100,150,255,0.25), transparent 70%);
-  filter: blur(10px);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), rgba(100, 200, 255, 0.15), transparent 80%);
+  filter: blur(12px) brightness(1.2);
+  opacity: 0.8;
   z-index: -1;
+  transition: all 0.6s ease;
 }
+
 
 @keyframes spin {
   from {
