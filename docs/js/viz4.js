@@ -41,8 +41,8 @@ Promise.all([
     const tooltip = d3.select("#map-tooltip");
   
     const projection = d3.geoNaturalEarth1()
-      .scale(160)
-      .translate([960 / 2, 600 / 2]);
+      .scale(200)
+      .translate([900 / 2, 700 / 2]);
   
     const path = d3.geoPath().projection(projection);
   
@@ -61,7 +61,7 @@ Promise.all([
         const entries = filteredData
           .filter(lang => lang.country === country)
           .sort((a, b) => a.rank - b.rank)
-          .slice(0, 7);
+          .slice(0, 5);
       
         if (entries.length > 0) {
           const tooltipHTML = `

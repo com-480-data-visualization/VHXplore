@@ -69,7 +69,9 @@ h2 {
 .details {
   position: absolute;
   left: 50%;
-  transform: translate(-50%, 300%); 
+  /*transform: translate(-50%, 300%); /* Center horizontally & vertically */ 
+  margin:auto;
+  transform: translate(-50%,400px);
   background-color: #252526;
   color: #d4d4d4;
   padding: 1rem;
@@ -85,8 +87,15 @@ h2 {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
+  text-align: center;
 }
 
+#bargraph-button-container{
+  display: flex;
+  justify-content: center; /* centers the buttons horizontally */
+  gap: 10px; /* optional: adds spacing between buttons */
+  margin-bottom: 20px; /* optional: adds spacing below the button group */
+}
 @keyframes orbit-rotation {
   0% {
     transform: rotate(0deg);
@@ -370,3 +379,40 @@ button {
   fill: 	#DCDCAA;
 }
 
+.details-graph{
+    position:absolute;
+    left: 50%; 
+    margin:auto;
+    /*transform: translate(-50%,-100px);*/
+    background-color: #252526;
+    color: #d4d4d4;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+#timeline-explanation {
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #ddd;
+}
+
+
+#timeline-explanation h2 {
+  color: #9CDCFE;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#timeline-explanation p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #bbb;
+}
+#viz-map-container{
+  width: 70%;
+  height:70%;
+  margin:auto;
+}

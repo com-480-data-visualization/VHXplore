@@ -27,11 +27,16 @@
     <div class="section" id="intro">
       <div id="intro-canvas-container" style="width:100%; height:100%; position:relative;"></div>
     </div>
-
+    
     <div class="section" id="viz1">
-        <h2>Programming Languages Timeline </h2>
-
-
+      <div id="timeline-explanation" >
+        <h2>How Programming Languages Evolved</h2>
+        <p>
+          This timeline shows when different programming languages came to life.
+          Each dot on the line marks the birth of a language — hover over one to find out who created it, when, and where it happened.
+          It's like a little history tour for coders!
+        </p>
+      </div>
         <div id="viz1-container">
           <svg id="line-overlay"
           width="100%"
@@ -41,10 +46,19 @@
     </div>
 
     <div class="section" id="viz-bargraph">
-      <h2>Bar graph </h2>
-      <button class='bargraph-button' onclick="update('bookcount_data')">Book Count</button>
-      <button class='bargraph-button' onclick="update('papercount_data')">Paper Count</button>
-      <button class='bargraph-button' onclick="update('number_of_users_data')">Number of Users</button>
+      <div id="timeline-explanation">
+        <h2>Explore Programming Languages by Popularity & Influence</h2>
+        <p>
+          This chart lets you compare programming languages in different ways.
+          You can switch between how many books have been written about them, how many academic papers mention them, 
+          or how many people use them. Just click the buttons to change what’s on the Y-axis!
+        </p>
+      </div>
+      <div id="bargraph-button-container">
+        <button class='bargraph-button' onclick="update('bookcount_data')">Book Count</button>
+        <button class='bargraph-button' onclick="update('papercount_data')">Paper Count</button>
+        <button class='bargraph-button' onclick="update('number_of_users_data')">Number of Users</button>
+      </div>
       <div id="title"></div>
       <div id="viz-bargraph-container">
       </div>
@@ -234,9 +248,16 @@
     </div>
 
     <div class="section" id="viz4">
-      <h2>Mapping programming languages and their countries</h2>
+    <div id="timeline-explanation">
+      <h2>Where in the World Did Programming Languages Come From?</h2>
+        <p>
+          Hover over a country on the map to see how many programming languages were developed there.
+          You’ll also get a list of the top 5 languages from that country, along with who created them and when.
+          It’s a fun way to explore the global roots of your favorite coding tools!
+        </p>
+      </div>
       <div id="viz-map-container">
-        <svg id="world-map" width="1000" height="600"></svg>
+        <svg id="world-map" width="1500" height="500"></svg>
         <div class="tooltip" id="map-tooltip" style="position:absolute; display:none; border:1px solid #ccc; padding:5px;"></div>
       </div>
     </div>
@@ -250,9 +271,9 @@
             <input id="speedSlider" type="range" min="0" max="1" step="0.001">
             <span id="speedValue">1×</span>
           </label>
-          <button id="pauseBtn">Play</button>
-          <button id="resetBtn">Reset time</button>
-          <button id="resetSpeedBtn">Reset speed</button>
+            <button id="pauseBtn">Play</button>
+            <button id="resetBtn">Reset time</button>
+            <button id="resetSpeedBtn">Reset speed</button>
         </div>
         <div id="chart">
           <svg id="popularity"></svg>
@@ -287,8 +308,8 @@ new fullpage('#fullpage', {
   licenseKey: 'OPEN-SOURCE-GPLV3', 
   autoScrolling: true,
   navigation: true,
-  anchors: ['intro', 'timeline', 'bargraph', 'stories', 'performance', 'mapping', 'graph', 'ranking'],
-  navigationTooltips: ['Intro', 'Timeline', 'Bargraph', 'Stories', 'Performance', 'Mapping', 'Graph', 'Ranking'],
+  anchors: ['intro', 'timeline', 'Chart', 'stories', 'performance', 'mapping', 'graph', 'ranking'],
+  navigationTooltips: ['Intro', 'Timeline', 'Chart', 'Stories', 'Performance', 'World Map', 'Graph', 'Ranking'],
   showActiveTooltip: true,
   scrollOverflow: false
 });
