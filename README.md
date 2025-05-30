@@ -130,7 +130,7 @@ The first version of the website: [[link]](/Milestones/milestone2/first_website)
 
 ### Milestone 3
 
-Screencast is here: [[link]](screencast)
+Screencast is here: [[link]](/Milestones/milestone3/video.mp4)
 
 Process book is here: [[link]](Process book)
 
