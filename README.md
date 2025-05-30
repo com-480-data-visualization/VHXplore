@@ -9,7 +9,7 @@ Explore the history and global impact of programming languages through interacti
 
 ## 📘 Project Overview
 
-As computer science students, we interact with a wide range of programming languages in our daily work. While we often choose languages based on their features or performance, few of us pause to consider their origins—when they were created, who developed them, where they came from, how popular they are today, or even what their names mean.
+As computer students, we interact with a wide range of programming languages in our daily work. While we often choose languages based on their features or performance, few of us pause to consider their origins—when they were created, who developed them, where they came from, how popular they are today, or even what their names mean.
 
 In this project, we aim to present a comprehensive and interactive visualization of the most influential programming languages, starting from the 1950s. Our goal is to make this information engaging and accessible, combining historical and technical insights with visual storytelling.
 
