@@ -1,13 +1,27 @@
 #viz2 {
   position: relative;
-  height: 100vh; /* ✅ 这句是关键：让它有可视高度 */
+  height: 100vh;
   overflow: hidden;
 }
 
 #viz2-container {
   position: relative;
-  z-index: 1; /* ⬅️ 提升轨道容器，但仍让背景 canvas 在后面可见 */
-  background: transparent; /* 🧼 确保它不会遮挡 canvas */
+  width:100%;
+  height:100%
+  z-index: 1;
+  background: transparent;
+  perspective: 1000px;
+}
+
+.starfield-theme {
+  background: radial-gradient(circle at 30% 30%, #0c1a2a, #05060d);
+  color: #eee;
+  min-height: 100vh;
+}
+
+.starfield-theme * {
+  color: inherit;
+  font-family: inherit;
 }
 
 
@@ -102,7 +116,7 @@
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0,0,0,0.2), transparent 70%);
   pointer-events: none;
-  z-index: 2;  /* 在星球上方 */
+  z-index: 2; 
   mix-blend-mode: overlay;
   filter: blur(8px);
 }
@@ -140,33 +154,28 @@
   object-fit: contain;
 }
 
-/* Python - 深绿色 */
 .planet--python .planet__logo {
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), rgba(32, 85, 41, 0.6), rgba(10, 30, 20, 0.7));
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(32, 85, 41, 0.5), rgba(10, 30, 20, 0.6));
   box-shadow: 0 0 15px rgba(40,100,60,0.5);
 }
 
-/* Java - 咖啡色 */
 .planet--java .planet__logo {
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(110, 70, 40, 0.6), rgba(40, 20, 10, 0.7));
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.20), rgba(110, 70, 40, 0.5), rgba(40, 20, 10, 0.6));
   box-shadow: 0 0 15px rgba(120,70,40,0.4);
 }
 
-/* MATLAB - 橘红色 */
 .planet--matlab .planet__logo {
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), rgba(240, 110, 30, 0.6), rgba(100, 40, 0, 0.7));
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(240, 110, 30, 0.5), rgba(100, 40, 0, 0.6));
   box-shadow: 0 0 15px rgba(255,120,60,0.4);
 }
 
-/* C++ - 蓝色 */
 .planet--c .planet__logo {
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), rgba(80,130,255,0.6), rgba(0,20,60,0.7));
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(80,130,255,0.5), rgba(0,20,60,0.6));
   box-shadow: 0 0 15px rgba(80,130,255,0.4);
 }
 
-/* PHP - 深灰色 */
 .planet--php .planet__logo {
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(80,80,80,0.5), rgba(30,30,30,0.7));
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(80,80,80,0.4), rgba(30,30,30,0.6));
   box-shadow: 0 0 15px rgba(100,100,100,0.3);
 }
 
@@ -179,7 +188,7 @@
 }
 
 .planet--focused {
-  transform: scale(2.5) translateZ(80px) !important;
+  transform: scale(1.1) translateZ(80px) !important;
   z-index: 100;
   transition: transform 0.6s ease, z-index 0.6s;
 }
@@ -213,26 +222,32 @@
 
 
 .modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  animation: modalEnter 0.5s ease-out;
 }
 
+
+
 .modal-content {
-  background: #222;
-  color: white;
+  background: rgba(18, 32, 51, 0.75);
+  color: #eee;
   padding: 2rem;
-  max-width: 900px;
-  border-radius: 10px;
-  position: relative;
+  border-radius: 16px;
+  max-width: 800px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.2);
 }
+
+
 
 .close-btn {
   position: absolute;
@@ -250,9 +265,13 @@
 }
 
 .modal-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
+  color: #66ccff;
+  text-shadow: 0 0 10px rgba(102, 204, 255, 0.8);
+  letter-spacing: 1px;
 }
+
 
 .centered-logo {
   width: 180px;
@@ -327,9 +346,9 @@
 
 .icon-scene-jv {
   position: relative;
-  width: 300px;   /* 原来是 150px */
+  width: 300px;   
   height: 150px;
-  overflow: visible;  /* 改为 visible 允许外部动画进入视野 */
+  overflow: visible; 
 }
 
 .icon-item-jv {
@@ -386,7 +405,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px; /* 可以调节高度 */
+  height: 200px; 
 }
 
 .question-jv {
@@ -399,19 +418,7 @@
   margin-bottom: 0.5rem;
 }
 
-.question-buttons button {
-  margin: 0 1rem;
-  padding: 0.5rem 1.2rem;
-  background-color: #ffd43b;
-  color: #222;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
 
-.question-buttons button:hover {
-  background-color: #ffcc00;
-}
 
 .question-feedback {
   margin-top: 1rem;
@@ -429,12 +436,22 @@
 
 
 
-button {
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
+.modal-content button {
+  background: linear-gradient(to right, #00b4d8, #0077b6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
   font-size: 1rem;
-  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+
+.modal-content button:hover {
+  background: linear-gradient(to right, #90e0ef, #00b4d8);
+  transform: scale(1.05);
+}
+
 
 #toggle-btn {
   background-color: #ffd43b;
@@ -444,6 +461,8 @@ button {
   border-radius: 6px;
   margin-top: 1rem;
   cursor: pointer;
+  display: block;
+  margin: 2rem auto 0 auto;
 }
 
 #story-text {
@@ -457,16 +476,6 @@ button {
   position: relative;
 }
 
-#tm-icon-jv.cover-tm-jv {
-  position: absolute;
-  top: 90px;
-  right: 70px;
-  transform: translate(50%, -50%);
-  font-size: 40px;
-  opacity: 1;
-  z-index: 2;
-  animation: fade-out 1s ease 1s forwards;
-}
 
 #coffee-icon-jv {
   z-index: 3;
@@ -481,13 +490,13 @@ button {
 }
 
 #php-animation-container {
-  width: 500px;     /* 你可以根据最长字符串来微调 */
-  height: 2.5em;     /* 保证高度也稳定 */
+  width: 500px;
+  height: 2.5em;
   font-size: 2rem;
   font-weight: bold;
   color: white;
   text-align: center;
-  overflow: hidden;  /* 超出的部分裁剪（可选） */
+  overflow: hidden;
 }
 
 
@@ -534,13 +543,6 @@ button {
   margin-bottom: 1rem;
 }
 
-#cpp-clock-face {
-  width: 200px;
-  height: 200px;
-  border: 2px solid white;
-  border-radius: 50%;
-  position: relative;
-}
 
 .clock-letter {
   position: absolute;
@@ -555,17 +557,6 @@ button {
   font-weight: bold;
 }
 
-#cpp-hand {
-  position: absolute;
-  width: 2px;
-  height: 80px;
-  background-color: #ffd43b;
-  top: 50%;
-  left: 50%;
-  transform-origin: bottom center;
-  transform: translate(-50%, -100%) rotate(30deg); /* 起点在中心，向上伸展 */
-  transition: transform 1s ease;
-}
 
 .matlab-question-wrapper {
   text-align: center;
@@ -573,13 +564,20 @@ button {
 }
 
 .matt-img {
+  display: block;
+  margin: 2rem auto;
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #ffd43b;
-  margin-bottom: 1rem;
+
+  position: relative;
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
 }
+
 
 .question-buttons button {
   margin: 0 1rem;
@@ -603,6 +601,74 @@ button {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.cpp-beautiful-bc {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffd43b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cpp-beautiful-bc .arrow {
+  font-size: 2.5rem;
+  color: #66ccff;
+  animation: pulse-arrow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-arrow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.fade-image {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.fade-image.visible {
+  opacity: 1;
+}
+
+.jv-img {
+  width: 100px;
+  height: auto;
+  border-radius: 12px;
+}
+
+#oak-img-jv,
+#coffee-img-jv {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.question-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8rem;
+  margin-top: 1rem;
 }
 
 

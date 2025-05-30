@@ -61,7 +61,6 @@ h2 {
 
 .dot {
   fill: 	#DCDCAA;
-  /* 明亮金黄，VSCode 风格 */
   stroke: #333;
   stroke-width: 1px;
 }
@@ -375,7 +374,7 @@ button {
 
 #intro {
   position: relative;
-  height: 100vh; /* 或者你可以用 800px 测试 */
+  height: 100vh;
   overflow: hidden;
   fill: 	#DCDCAA;
 }
