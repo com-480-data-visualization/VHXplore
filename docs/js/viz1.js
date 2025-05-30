@@ -12,6 +12,7 @@ d3.csv("data/pldb.csv").then(csv_data => {
       country: d.country,
       bookcount: +d.bookCount,
       type: d.type,
+      originCommunity: d.originCommunity,
     }
 ));
   const seen = new Map();
@@ -43,8 +44,8 @@ d3.csv("data/pldb.csv").then(csv_data => {
     .attr("transform", `translate(0, ${height - margin.bottom})`)
     .call(d3.axisBottom(x).tickFormat(d3.format("d")))
     .selectAll("text")
-    .style("font-size", "20px")
-    .style("transform", "translate(0%, 50%)");
+    .style("font-size", "10px")
+    .style("transform", "translate(0%, 5%)");
 
 
   const details = d3.select("#viz1")
@@ -102,7 +103,7 @@ d3.csv("data/pldb.csv").then(csv_data => {
     if(d.type == "pl"){
       type = "Programming Language";
     }
-    details.html(`<strong>${d.name}</strong><br>${d.year}<br>${d.creator} <br>Type:${type}`)
+    details.html(`<strong>${d.name}</strong><br>${d.year}<br>${d.originCommunity}<br>${d.creator}`)
     
     const dotRect = event.currentTarget.getBoundingClientRect();
     const detailRect = details.node().getBoundingClientRect();

@@ -19,7 +19,7 @@ d3.csv("data/pldb.csv").then(csv_data => {
     
     const details = d3.select("#viz-bargraph-container")
       .append("div")
-      .attr("class", "details")
+      .attr("class", "details-graph")
       .style("opacity", 0);
 
     // Build data1 from CSV
@@ -110,7 +110,7 @@ d3.csv("data/pldb.csv").then(csv_data => {
             .attr("transform", "rotate(-45)")
             .style("text-anchor", "end");
       
-        // 🔥 Custom Y-scale logic
+        // Custom Y-scale logic
         if (isString && rawData === "appeared_data") {
           // Fixed Y range for years
           y.domain([1950, 2025]);
