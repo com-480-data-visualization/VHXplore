@@ -126,7 +126,7 @@ It contains:
 
 Our milestone 2 report: [[link]](/Milestones/milestone2/milestone2.pdf) 
 
-Link to the first version of the website: [[link]](https://com-480-data-visualization.github.io/VHXplore/) 
+The first version of the website: [[link]](/Milestones/milestone2/first_website) 
 
 ### Milestone 3
 
