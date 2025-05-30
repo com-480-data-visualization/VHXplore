@@ -132,7 +132,7 @@ The first version of the website: [[link]](/Milestones/milestone2/first_website)
 
 Screencast is here: [[link]](screencast)
 
-Process book is here: [[link]](Process book)
+Process book is here: [[link]](Milestones/milestone3/Programming languages explorer.pdf)
 
 Final website is here: [[link]](https://com-480-data-visualization.github.io/VHXplore/)
 
