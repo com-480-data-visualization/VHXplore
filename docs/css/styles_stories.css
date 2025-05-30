@@ -4,6 +4,22 @@
   overflow: hidden;
 }
 
+#viz2-explanation {
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #ddd;
+  padding-top: 100px;
+}
+
+#viz2-explanation h2 {
+  color: #9CDCFE;
+  font-size: 26px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
 #viz2-container {
   position: relative;
   width:100%;
@@ -92,11 +108,11 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(50, 50, 50, 0.3));
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.479), rgba(132, 149, 192, 0.466), rgba(0, 20, 60, 0.6));
   box-shadow:
-    inset -5px -5px 12px rgba(255,255,255,0.2),
-    inset 5px 5px 18px rgba(0,0,0,0.3),
-    0 0 15px rgba(255,255,255,0.2);
+    inset -5px -5px 12px rgba(255, 255, 255, 0.2),
+    inset 5px 5px 18px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(80, 130, 255, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,32 +169,6 @@
   height: auto;
   object-fit: contain;
 }
-
-.planet--python .planet__logo {
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(32, 85, 41, 0.5), rgba(10, 30, 20, 0.6));
-  box-shadow: 0 0 15px rgba(40,100,60,0.5);
-}
-
-.planet--java .planet__logo {
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.20), rgba(110, 70, 40, 0.5), rgba(40, 20, 10, 0.6));
-  box-shadow: 0 0 15px rgba(120,70,40,0.4);
-}
-
-.planet--matlab .planet__logo {
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(240, 110, 30, 0.5), rgba(100, 40, 0, 0.6));
-  box-shadow: 0 0 15px rgba(255,120,60,0.4);
-}
-
-.planet--c .planet__logo {
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(80,130,255,0.5), rgba(0,20,60,0.6));
-  box-shadow: 0 0 15px rgba(80,130,255,0.4);
-}
-
-.planet--php .planet__logo {
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), rgba(80,80,80,0.4), rgba(30,30,30,0.6));
-  box-shadow: 0 0 15px rgba(100,100,100,0.3);
-}
-
 
 
 .planet__label {
@@ -455,7 +445,8 @@
 
 #toggle-btn {
   background-color: #ffd43b;
-  color: #222;
+  color: #fff;
+  font-weight: 600;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -583,7 +574,8 @@
   margin: 0 1rem;
   padding: 0.5rem 1.2rem;
   background-color: #ffd43b;
-  color: #222;
+  color: #fff;
+  font-weight: 600;
   border: none;
   border-radius: 6px;
   cursor: pointer;
