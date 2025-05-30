@@ -208,42 +208,55 @@
     </div>
 
     <div class="section" id="viz4">
+
       <div id="timeline-explanation">
-        <h2>Where in the World Did Programming Languages Come From?</h2>
+        <h2>Where in the World did Programming Languages Come From?</h2>
           <p>
             Hover over a country on the map to see how many programming languages were developed there.
             You’ll also get a list of the top 5 languages from that country, along with who created them and when.
             It’s a fun way to explore the global roots of your favorite coding tools!
           </p>
+      </div>
+
+      <div id="viz-map-container">
+        <svg id="world-map" width="1500" height="500"></svg>
+        <div class="tooltip" id="map-tooltip" style="position:absolute; display:none; border:1px solid #ccc; padding:5px;"></div>
+      </div>
+
+    </div>
+
+
+
+    <div class="section" id="viz6">
+
+      <div id="timeline-explanation">
+        <h2>The popularity of programming languages over time</h2>
+          <p>
+            Press play to see the most popular programming languages trough the years!
+          </p>
+      </div>
+
+      <div id="viz6-container">
+        <div id="controls" style="text-align:center; margin: 10px;">
+          <label>
+            Speed:
+            <input id="speedSlider" type="range" min="0" max="1" step="0.001">
+            <span id="speedValue">1×</span>
+          </label>
+            <button id="pauseBtn">Play</button>
+            <button id="resetBtn">Reset time</button>
+            <button id="resetSpeedBtn">Reset speed</button>
         </div>
-        <div id="viz-map-container">
-          <svg id="world-map" width="1500" height="500"></svg>
-          <div class="tooltip" id="map-tooltip" style="position:absolute; display:none; border:1px solid #ccc; padding:5px;"></div>
+        <div id="chart">
+          <svg id="popularity"></svg>
+          <div id="date-display"></div>
+        </div>
+        <div id="progress-container">
+          <progress id="time-progress" value="0" max="1"></progress>
         </div>
       </div>
 
-      <div class="section" id="viz6">
-        <h2>Popularity of programming languages over time</h2>
-        <div id="viz6-container">
-          <div id="controls" style="text-align:center; margin: 10px;">
-            <label>
-              Speed:
-              <input id="speedSlider" type="range" min="0" max="1" step="0.001">
-              <span id="speedValue">1×</span>
-            </label>
-              <button id="pauseBtn">Play</button>
-              <button id="resetBtn">Reset time</button>
-              <button id="resetSpeedBtn">Reset speed</button>
-          </div>
-          <div id="chart">
-            <svg id="popularity"></svg>
-            <div id="date-display"></div>
-          </div>
-          <div id="progress-container">
-            <progress id="time-progress" value="0" max="1"></progress>
-          </div>
-        </div>
-      </div>
+    </div>
 
 
 
@@ -269,28 +282,46 @@
     </div>
 
     <div class="section" id="viz3">
-      <div id="tsparticles"></div>
+
+      <div id="timeline-explanation">
         <h2>Performance comparison of programming languages</h2>
-        <div id="viz3-container">
-          <div class="controls">
-            <label for="lang-select">Languages:</label>
-            <select id="lang-select" multiple></select>
+          <p>
+            Explore the performance of different programming languages!
+          </p>
 
-            <label for="name-select">Problem:</label>
-            <select id="name-select"></select>
+          <p>
+           Use SHIFT and click or use CTRL and click to select multiple languages.
+          </p>
 
-            <label for="n-select">Problem Size:</label>
-            <select id="n-select"></select>
+          <p>
+           Size: size of the program. CPU time: time taken by the program. Memory: memory usage of the program.
+          </p>
+          <p>
+           Use the dropdown menus to select different benchmark problems and problem sizes.
+          </p>
+      </div>
+      
+      <div id="viz3-container">
+        <div class="controls">
+          <label for="lang-select">Languages:</label>
+          <select id="lang-select" multiple></select>
 
-            <label for="sort-select">Sort By:</label>
-            <select id="sort-select"></select>
-        </div>
-        <div class="charts">
-            <div id="chart-size" class="chart"></div>
-            <div id="chart-cpu" class="chart"></div>
-            <div id="chart-mem" class="chart"></div>
-        </div>
-        </div>
+          <label for="name-select">Problem:</label>
+          <select id="name-select"></select>
+
+          <label for="n-select">Problem Size:</label>
+          <select id="n-select"></select>
+
+          <label for="sort-select">Sort By:</label>
+          <select id="sort-select"></select>
+       </div>
+       <div class="charts">
+          <div id="chart-size" class="chart"></div>
+          <div id="chart-cpu" class="chart"></div>
+          <div id="chart-mem" class="chart"></div>
+       </div>
+      </div>
+
     </div>
 
     
