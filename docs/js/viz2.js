@@ -406,7 +406,7 @@ window.addEventListener("load", () => {
     },
     particles: {
       number: {
-        value: 280,
+        value: 150,
         density: {
           enable: true,
           area: 800
@@ -416,8 +416,14 @@ window.addEventListener("load", () => {
         value: ["#ffffff", "#cceeff", "#88bbff"]
       },
       shape: {
-        type: "circle"
-      },
+        type: "star",
+        options: {
+          star: {
+            sides: 5,  
+            inset: 2, 
+          }
+        }
+      },      
       opacity: {
         value: 0.9,
         random: true,

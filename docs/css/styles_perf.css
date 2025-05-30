@@ -15,6 +15,6 @@
     margin: 10px;
 }
 #svg_perf {
-    background-color: #1e1e1e;
+    background-color: transparent;
     overflow: visible;  /* Ensure axis labels are not cut */
 }
