@@ -1,4 +1,3 @@
-// script.js
 const margin = { top: 20, right: 20, bottom: 50, left: 100 };
 const width = 500 - margin.left - margin.right;
 const height = 450 - margin.top - margin.bottom;
@@ -138,7 +137,7 @@ d3.csv("data/alldata_processed.csv", d3.autoType).then(data => {
 
         const t = svg.transition().duration(200);
 
-        // Bars
+       
         svg.selectAll(".bar")
             .data(data)
             .enter()
@@ -155,7 +154,7 @@ d3.csv("data/alldata_processed.csv", d3.autoType).then(data => {
             .attr("y", d => y(valueMean(d)))
             .attr("height", d => height - y(valueMean(d)));
 
-        // Error bars
+       
         svg.selectAll(".error-bar")
             .data(data)
             .enter()
@@ -172,7 +171,7 @@ d3.csv("data/alldata_processed.csv", d3.autoType).then(data => {
             .attr("y2", d => y(valueMean(d) + valueStd(d)));
 
         const capWidth = 5;
-        // Top caps
+     
         svg.selectAll(".error-cap-top")
             .data(data)
             .enter()
@@ -188,7 +187,7 @@ d3.csv("data/alldata_processed.csv", d3.autoType).then(data => {
             .attr("y1", d => y(valueMean(d) + valueStd(d)))
             .attr("y2", d => y(valueMean(d) + valueStd(d)));
 
-        // Bottom caps
+       
         svg.selectAll(".error-cap-bottom")
             .data(data)
             .enter()
@@ -210,7 +209,7 @@ d3.csv("data/alldata_processed.csv", d3.autoType).then(data => {
             .attr("x", -height / 2)
             .attr("dy", "-1em")
             .style("text-anchor", "middle")
-            .style("fill", "white")  // ← set your desired color here
+            .style("fill", "white")  
             .text(ylabel);
         
     }

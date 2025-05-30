@@ -1,4 +1,3 @@
-// Configuration
 const margin_pop = { top: 20, right: 150, bottom: 100, left: 150 },
       width_pop = 960 - margin_pop.left - margin_pop.right,
       height_pop = 600 - margin_pop.top - margin_pop.bottom,
@@ -10,37 +9,32 @@ const BASE_TICK_DELAY = transitionDuration;
 const BASE_TRANSITION_DURATION = transitionDuration;
 let speed = 1;
 
-// Speed control
 const speedSlider = d3.select('#speedSlider');
 const speedDisplay = d3.select('#speedValue');
 const MIN_SPEED = 0.2;
 const MAX_SPEED = 80;
 const DEFAULT_SPEED = 1;
 
-// Configure slider input range for logarithmic control
 speedSlider
   .attr('min', 0)
   .attr('max', 1)
   .attr('step', 0.001);
 
-// Compute normalized default position
 const DEFAULT_NORM = Math.log(DEFAULT_SPEED / MIN_SPEED) / Math.log(MAX_SPEED / MIN_SPEED);
 speedSlider.property('value', DEFAULT_NORM);
 
-// Function to update speed based on slider's log scale
+
 function updateSpeed() {
   const norm = +speedSlider.property('value');
   speed = MIN_SPEED * Math.pow(MAX_SPEED / MIN_SPEED, norm);
   speedDisplay.text(speed.toFixed(2) + '×');
 }
 
-// Initialize display
+
 updateSpeed();
 
-// Update on slider input
 speedSlider.on('input', updateSpeed);
 
-// Scales & SVG
 const svg = d3.select("#popularity")
   .attr("width", width_pop + margin_pop.left + margin_pop.right)
   .attr("height", height_pop + margin_pop.top + margin_pop.bottom)
@@ -57,10 +51,9 @@ const xAxisGroup = svg.append("g")
 const yAxisGroup = svg.append("g")
   .attr("class", "axis y-axis");
 
-// Pause & Reset controls
 const pauseBtn = d3.select('#pauseBtn');
 const resetBtn = d3.select('#resetBtn');
-let paused = true; // Start paused
+let paused = true;
 let timeoutId;
 
 d3.csv("data/pop_data.csv").then(raw => {
@@ -81,16 +74,15 @@ d3.csv("data/pop_data.csv").then(raw => {
     };
   }).sort((a, b) => d3.ascending(a.time, b.time));
 
-// Progress bar setup
+
 const startDate = frames[0].time;
 const endDate = frames[frames.length - 1].time;
 const progress = d3.select('#time-progress');
 
-// Big month-year display
+
 const dateDisplay = d3.select('#date-display');
 
 
-// Add time ticks
 const tickContainer = d3.select('#progress-container')
   .append('div')
   .attr('id','time-ticks')
@@ -122,7 +114,7 @@ tickContainer.selectAll('div.tick')
 
   color.domain(languages);
 
-  // Initial axes & bars
+ 
   x.domain([0, d3.max(frames[0].ranked, d => d.value)]);
   y.domain(frames[0].ranked.map(d => d.name));
 
@@ -148,7 +140,7 @@ tickContainer.selectAll('div.tick')
       .style("font", "12px sans-serif")
       .text(d => `${d.name} (${d.value.toFixed(1)}%)`);
 
-  // Update function
+
   function update({ time, ranked }) {
     x.domain([0, d3.max(ranked, d => d.value)]);
     y.domain(ranked.map(d => d.name));
@@ -198,11 +190,11 @@ tickContainer.selectAll('div.tick')
           };
         });const frac = (time - startDate) / (endDate - startDate);
   progress.property('value', frac);
-  // Update big date display
+
   dateDisplay.text(d3.timeFormat('%B %Y')(time));
 }
 
-  // Scheduler
+ 
   function scheduleTick() {
     timeoutId = setTimeout(() => {
       frameIndex = (frameIndex + 1) % frames.length;
@@ -211,7 +203,7 @@ tickContainer.selectAll('div.tick')
     }, BASE_TICK_DELAY / speed);
   }
 
-  // Control handlers
+
   pauseBtn.on('click', () => {
     if (!paused) {
       paused = true;
@@ -232,15 +224,14 @@ tickContainer.selectAll('div.tick')
     update(frames[0]);
   });
 
-  // Reset speed to default (1x)
+
   const resetSpeedBtn = d3.select('#resetSpeedBtn');
   resetSpeedBtn.on('click', () => {
   speedSlider.property('value', DEFAULT_NORM);
   updateSpeed();
 });
 
-    // Start
+  
   let frameIndex = 0;
-  // scheduleTick(); // Animation starts paused; click Play to start
   console.log("execution finished vis6");
 });
