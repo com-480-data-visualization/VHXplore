@@ -2,7 +2,7 @@ body {
   font-family: "Fira Code", "Courier New", monospace;
   margin: 0;
   padding: 0;
-  background-color: #1e1e1e;
+  background: radial-gradient(circle at 30% 30%, #0c1a2a, #05060d);
   color: #d4d4d4;
 }
 

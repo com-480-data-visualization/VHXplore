@@ -16,12 +16,10 @@ function init() {
   const ambientLight = new THREE.AmbientLight(0x888888);
   scene.add(ambientLight);
 
-  // 强化平行光，调整角度让光斜打进来
   const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
   directionalLight.position.set(0.5, 1, 1).normalize();
   scene.add(directionalLight);
 
-  // 再加一个从侧面打光的补光（更戏剧性）
   const sideLight = new THREE.DirectionalLight(0xffffff, 0.5);
   sideLight.position.set(-1, 0.2, 0.2).normalize();
   scene.add(sideLight);
@@ -30,83 +28,94 @@ function init() {
   scene.background = null;
   const loader = new FontLoader();
   loader.load('fonts/helvetiker_regular.typeface.json', function (font) {
-    textGroup = new THREE.Group(); // 包含文字 mesh 和 line
-    const message = 'Programming Languages';
-    const shapes = font.generateShapes(message,35);
-
-    const geometry = new THREE.ShapeGeometry(shapes);
-    geometry.computeBoundingBox();
-
-    const xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
-    geometry.translate(xMid, 0, 0); // 居中
+    textGroup = new THREE.Group(); 
 
     const material = new THREE.MeshPhongMaterial({
       color: 0x00bfff,
       shininess: 150,
       specular: 0xffffff,
-      emissive: 0x00bfff, // 与主色相同
-      emissiveIntensity: 0.3, // 0.2~0.5 之间最自然
+      emissive: 0x00bfff, 
+      emissiveIntensity: 0.3, 
       transparent: true,
       opacity: 0.85,
       side: THREE.DoubleSide
     });
-
-
-
-
-    const text = new THREE.Mesh(geometry, material);
-    text.position.z = -150;
-    textGroup.add(text);
-
-    // 获取文字 shapes 中的 hole（字母中的洞，比如 "o", "a"）
-    const holeShapes = [];
-    for (let i = 0; i < shapes.length; i++) {
-      const shape = shapes[i];
-      if (shape.holes && shape.holes.length > 0) {
-        for (let j = 0; j < shape.holes.length; j++) {
-          holeShapes.push(shape.holes[j]);
-        }
-      }
-    }
-
-    // 把所有 hole 也加入 shapes 中（用于 line 描边）
-    shapes.push(...holeShapes);
-
-    // 为每个 shape 生成线条
+    
     const matLine = new THREE.LineBasicMaterial({
-      color: 0x00bfff, // 或 new THREE.Color('#00bfff')
+      color: 0x082099, 
       side: THREE.DoubleSide
     });
-
-    const lineGroup = new THREE.Object3D();
-
-    for (let i = 0; i < shapes.length; i++) {
-      const shape = shapes[i];
+    
+    const message1 = 'Programming Languages';
+    const shapes1 = font.generateShapes(message1, 25);
+    const geometry1 = new THREE.ShapeGeometry(shapes1);
+    geometry1.computeBoundingBox();
+    const xMid1 = -0.5 * (geometry1.boundingBox.max.x - geometry1.boundingBox.min.x);
+    geometry1.translate(xMid1, 0, 0);
+    
+    const text1 = new THREE.Mesh(geometry1, material);
+    text1.position.z = 15;
+    textGroup.add(text1);
+    
+    const shapesWithHoles1 = shapes1.concat(
+      ...shapes1.flatMap(s => s.holes || [])
+    );
+    
+    const lineGroup1 = new THREE.Object3D();
+    for (let shape of shapesWithHoles1) {
       const points = shape.getPoints();
       const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
-      lineGeometry.translate(xMid, 0, 0);
-
+      lineGeometry.translate(xMid1, 0, 0);
       const lineMesh = new THREE.Line(lineGeometry, matLine);
-      lineGroup.add(lineMesh);
+      lineGroup1.add(lineMesh);
     }
-
-    textGroup.add(lineGroup);
+    lineGroup1.position.z = 0;
+    textGroup.add(lineGroup1);
+    
+    const message2 = 'Explorer';
+    const shapes2 = font.generateShapes(message2, 43);
+    const geometry2 = new THREE.ShapeGeometry(shapes2);
+    geometry2.computeBoundingBox();
+    const xMid2 = -0.5 * (geometry2.boundingBox.max.x - geometry2.boundingBox.min.x);
+    geometry2.translate(xMid2, 0, 0);
+    
+    const text2 = new THREE.Mesh(geometry2, material);
+    text2.position.y = -60;
+    text2.position.z = 15;
+    textGroup.add(text2);
+    
+    const shapesWithHoles2 = shapes2.concat(
+      ...shapes2.flatMap(s => s.holes || [])
+    );
+    
+    const lineGroup2 = new THREE.Object3D();
+    for (let shape of shapesWithHoles2) {
+      const points = shape.getPoints();
+      const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+      lineGeometry.translate(xMid2, 0, 0);
+      const lineMesh = new THREE.Line(lineGeometry, matLine);
+      lineGroup2.add(lineMesh);
+    }
+    lineGroup2.position.y = -60;
+    lineGroup2.position.z = 0;
+    textGroup.add(lineGroup2);
+    
     scene.add(textGroup);
+    
 
   });
 
   camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 1, 1000);
-  camera.position.z = 500;
+  camera.position.set(-100, -250, 400);
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
 
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(renderer.domElement);
   const controls = new OrbitControls(camera, renderer.domElement);
-  controls.target.set(0, 0, 0); // 让摄像机围绕中心转
+  controls.target.set(0, 0, 0); 
   controls.update();
 
-  // 每次拖动视角时触发 render()
   controls.addEventListener('change', render);
 
   window.addEventListener('resize', onWindowResize);
@@ -149,8 +158,8 @@ function render(time) {
   requestAnimationFrame(render);
 
   if (textGroup) {
-    const t = time * 0.001; // 毫秒转秒
-    textGroup.position.y = Math.sin(t) * 10; // 浮动范围 10 单位
+    const t = time * 0.001; 
+    textGroup.position.y = Math.sin(t) * 10;
   }
 
 
